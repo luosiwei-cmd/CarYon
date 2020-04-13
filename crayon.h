@@ -4,9 +4,12 @@
 #define ll long long
 #define ld long double
 #define forout(n) for(ci=1;ci<=n;ci++)
+#define csh cnt=0
+#define bh ++cnt
 using namespace std;
 int cprime[1000000];
 int ci;
+int cnt;
 namespace crand{
 	bool isInit;
 	int MTindex;
@@ -54,7 +57,22 @@ namespace crand{
 	
 }
 namespace cmath{
-	inline double cpi(){
+	inline ld cpi();
+	class circle{
+		public:
+			ld r,c,area;
+			ld oprc(bool flag){
+				if(flag)
+					c=2*r*cpi();
+				return 2*r*cpi();
+			}
+			ld opra(bool flag){
+				if(flag)
+					area=cpi()*r*r;
+				return cpi()*r*r;
+			}
+	};
+	inline ld cpi(){
 		return 3.141592653589793238462643383279502884197169399;
 	}
 	inline ld cdistance(ld a1,ld a2,ld b1,ld b2){
@@ -73,14 +91,14 @@ namespace cmath{
 	inline int cgcd(int a,int b){
 		return a==0?b:cgcd(b%a,a);
 	}
-	bool isprime(int a){
+	inline bool isprime(int a){
 		if(a<2)	return false;
 		for(int i=2;i<=sqrt(a);++i){
 			if(a%i==0)	return false;
 		}
 		return true;
 	}
-	int cmakeprime(int a,int b){
+	inline int cmakeprime(int a,int b){
 		int prcnt=0;
 		for(int i=a;i<=b;i++){
 			if(isprime(i)){
@@ -97,28 +115,34 @@ namespace inout{
 	inline void inint(int a){
 		string c,ccci,tnmp;
 		stringstream ss,cci;
+		if(cnt==0){
+			cci<<ci;
+			cci>>ccci;
+			string name="data"+ccci+".in";
+			freopen(name.c_str(),"w",stdout);
+			freopen(name.c_str(),"r",stdin);
+		}
 		ss<<a;
 		ss>>c;
-		cci<<ci;
-		cci>>ccci;
-		string name="data"+ccci+".in";
-		freopen(name.c_str(),"w",stdout);
-		freopen(name.c_str(),"r",stdin);
 		cin>>tnmp;
 		c=tnmp+c;
 		cout<<c;
+		bh;
 	}
 	inline void instring(string a){
 		string ccci,tnmp;
-		stringstream cci;
-		cci<<ci;
-		cci>>ccci;
-		string name="data"+ccci+".in";
-		freopen(name.c_str(),"w",stdout);
-		freopen(name.c_str(),"r",stdin);
+		if(cnt==0){
+			stringstream cci;
+			cci<<ci;
+			cci>>ccci;
+			string name="data"+ccci+".in";
+			freopen(name.c_str(),"w",stdout);
+			freopen(name.c_str(),"r",stdin);
+		}
 		cin>>tnmp;
 		a=tnmp+a;
 		cout<<a;
+		bh;
 	}
 }
 namespace ca{
