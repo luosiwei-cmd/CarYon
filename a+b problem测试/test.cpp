@@ -3,10 +3,12 @@
 using namespace std;
 using namespace ca;
 int main(){
-	forout(10)/*生成10组数据*/{
+	dataname="data";
+	makein(10)/*生成10组in数据*/{
 		csh;
-		inint(cyrand(0,10000));
-		instring(" ");
-		inint(cyrand(0,10000));
+		inint(cyrand(0,100));
+		instring("  ");
+		inint(cyrand(0,100));
 	}
+	makeout(10);
 }

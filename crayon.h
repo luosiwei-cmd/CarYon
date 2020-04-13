@@ -3,10 +3,11 @@
 #include<bits/stdc++.h>
 #define ll long long
 #define ld long double
-#define forout(n) for(ci=1;ci<=n;ci++)
+#define makein(n) for(ci=1;ci<=n;ci++)
 #define csh cnt=0
 #define bh ++cnt
 using namespace std;
+string dataname;
 int cprime[1000000];
 int ci;
 int cnt;
@@ -118,7 +119,7 @@ namespace inout{
 		if(cnt==0){
 			cci<<ci;
 			cci>>ccci;
-			string name="data"+ccci+".in";
+			string name=dataname+ccci+".in";
 			freopen(name.c_str(),"w",stdout);
 			freopen(name.c_str(),"r",stdin);
 		}
@@ -135,7 +136,7 @@ namespace inout{
 			stringstream cci;
 			cci<<ci;
 			cci>>ccci;
-			string name="data"+ccci+".in";
+			string name=dataname+ccci+".in";
 			freopen(name.c_str(),"w",stdout);
 			freopen(name.c_str(),"r",stdin);
 		}
@@ -144,6 +145,26 @@ namespace inout{
 		cout<<a;
 		bh;
 	}
+	void out(int a){/*参考了一下crayon完成了*/ 
+		freopen("CON.exe","r",stdin);
+		freopen("CON.exe","w",stdout);
+		stringstream aa;
+		string aaa;
+		aa<<a;
+		aa>>aaa;
+		string abc;
+		string name=dataname+aaa+".in";
+		freopen(name.c_str(),"r",stdin);
+		std::string outname=dataname+aaa+".out";
+		freopen(outname.c_str(),"w",stdout);
+		system("std.exe");
+		freopen("CON.exe","r",stdin);
+		freopen("CON.exe","w",stdout);
+	}
+	void makeout(int a){
+		for(int i=1;i<=a;++i)
+			out(i);
+	} 
 }
 namespace ca{
 	using namespace crand;
