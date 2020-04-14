@@ -19,7 +19,20 @@ caryon---C++方式测试数据生成利器。
 支持命令：
 
 ```
-之后会写的
+随机数相关：
+cyrand()	返回一个int类型的随机数
+cyrand_ll()	返回一个long long型的随机数
+cyrand(a,b)	返回一个在a，b之间的int随机数(a<b)
+cyrand_ll(a,b)	返回一个在a，b之间的long long随机数(a<b)
+cyrand_bool()	返回一个bool类型的随机数
+cyrand_engs()	返回任意一个小写字母
+cyrand_engb()	返回任意一个大写字母
+数学相关：
+circle类：public成员：r,c,area
+		函数：oprc(flag),opra(flag)	支持计算周长面积，flag==true时赋值到成员函数。
+cpi()	返回Π的值
+cdistance
+未完成命令列表
 ```
 
 ---
