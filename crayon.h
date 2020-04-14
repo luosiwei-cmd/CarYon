@@ -55,7 +55,16 @@ namespace crand{
 		if(a==b) return a;
 		else return cyrand_ll()%(b-a+1)+a;
 	}
-	
+	inline bool cyrand_bool(){
+		if(cyrand(0,1)==0)	return false;
+		else return true;
+	}
+	inline char cyrand_engs(){
+		return 'a'+cyrand(0,26);
+	}
+	inline char cyrand_engb(){
+		return 'A'+cyrand(0,26);
+	}
 }
 namespace cmath{
 	inline ld cpi();
