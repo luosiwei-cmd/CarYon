@@ -1,18 +1,6 @@
 # caryon
 
-本文暂时是一个开发的仓库，正式发布会换另一个。
-
----
-
 caryon---C++方式测试数据生成利器。
-
----
-
-本项目部分免费且开源，少部分收费，一次性授权
-
----
-
-目前正在开发中
 
 ---
 
@@ -31,14 +19,26 @@ cyrand_engb()	返回任意一个大写字母
 circle类：public成员：r,c,area
 		函数：oprc(flag),opra(flag)	支持计算周长面积，flag==true时赋值到成员函数。
 cpi()	返回Π的值
-cdistance
-未完成命令列表
+cdistance(a,b,x,y)	返回在平面直角坐标系中坐标为(a,b)的点和坐标(x,y)的点的距离
+cabs(T a)	返回a的绝对值
+cmin(a,b)	返回a,b中的最小值
+cmax(a,b)	返回a,b中的最大值
+cmin(a,b)	返回a,b的最大公因数
+isprime(a)	判断是不是质数
+cmakeprime(int a, int b)	生成在[a,b]的质数，储存在数组cprime中
+crprimenum(int a,int b)	返回已经制作的序号在[a,b]的一个随机质数
+frac类：public成员：son,mom 分别是分子和分母
+		函数：value()	返回分数的值
+			take(flag)	返回约分后的分数，flag为真时有分数线'/'
+			fracr(flag)	返回分数，flag作用同上
+数据存储类
+inint(int a)	在测试数据中输入一个a
+instring(string s)	在测试数据中形成s
+---
+其他信息见使用说明和根目录的test.cpp
+			
 ```
 
 ---
 
-# 目前进度：所有文件都可以制造了。
-
----
-
-查看a+b样例文件夹的test.cpp了解程序的使用吧。
+请查看两个样例了解程序使用，将于4.15写出程序的使用说明
