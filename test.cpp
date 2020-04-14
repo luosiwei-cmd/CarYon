@@ -5,10 +5,14 @@ using namespace ca;	//命名空间
 
 
 int main(){
-	/*这里请自行看使用文档和两个测试范例填写*/
-	//要在makein的时候每一次csh，不然会出bug
+	dataname="";	//这里写自己的前缀
+	makein(/*次数*/){
+		csh;
+		/*这里请自行看使用文档和两个测试范例填写*/
+	} 
+	makeout(/*次数*/);
 	//makeout的值必须大于makein 
 	//请把std编译好放到本文件夹，一定要有exe文件 
-	//感谢您的支持 
+	//感谢您的支持
 	return 0;
 } 
