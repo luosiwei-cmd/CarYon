@@ -120,6 +120,34 @@ namespace cmath{
 	inline int crprimenum(int beg,int end){
 		return cprime[crand::cyrand(beg,end)];
 	}
+	class frac{
+		public:
+			int son,mom;
+			ld value(){
+				return (ld)son/mom;
+			}
+			string take(bool flag){
+				int c=cgcd(son,mom);
+				son/=c;
+				mom/=c;
+				stringstream tmp1,tmp2;
+				string aaa,bbb;
+				tmp1<<son;
+				tmp1>>aaa;
+				tmp2<<mom;
+				tmp2>>bbb;
+				return (flag)?aaa+'/'+bbb:aaa+' '+bbb;
+			}
+			string fracr(bool flag){
+				stringstream tmp1,tmp2;
+				string aaa,bbb;
+				tmp1<<son;
+				tmp1>>aaa;
+				tmp2<<mom;
+				tmp2>>bbb;
+				return (flag)?aaa+'/'+bbb:aaa+' '+bbb;
+			}
+	};
 }
 namespace inout{
 	inline void inint(int a){
