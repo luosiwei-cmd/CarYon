@@ -31,6 +31,10 @@ frac类：public成员：son,mom 分别是分子和分母
 		函数：value()	返回分数的值
 			take(flag)	返回约分后的分数，flag为真时有分数线'/'
 			fracr(flag)	返回分数，flag作用同上
+kucan矩阵类：public函数:p,q,dlt[][]
+			函数：kucan()	初始化
+				in(),out()	输入和输出
+				+,-,*重载运算符
 数据存储类
 inint(int a)	在测试数据中输入一个a
 instring(string s)	在测试数据中形成s
