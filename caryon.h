@@ -13,12 +13,14 @@
 #define db double
 #define ms(a,b) memset(a,b,sizeof(a))
 #define sz(a) sizeof(a)
+#define lcm(x,y) (x/cgcd(x,y)*y)
 using namespace std;
 string dataname;
 int cprime[1000000];
 int ci;
 int cnt;
 const int N=151,inf=0x7f7f7f7f,moda=1000000007;
+bool debug;
 namespace crand{
 	bool isInit;
 	int MTindex;
@@ -121,54 +123,54 @@ namespace cmath{
         		}
         		return c;
     		}
-    	kucan operator * (const kucan b) const{
-       		kucan c;
-        	if(b.p==q){
-            	c.p=p;
-            	c.q=b.q;
-            	fs(i,1,c.p,1){
-                	fs(j,1,c.q,1){
-                    	ll jk=0;
-                    	fs(k,1,q,1){
-                        	jk+=dlt[i][k]*b.dlt[k][j];
-                        	jk%=moda;
-                    	}
-                    	c.dlt[i][j]=jk;
-                    	c.dlt[i][j]%=moda;
-                	}
-            	}
-			}
-        	return c;
-    	}
-    	kucan operator * (const ll b) const{
-        	kucan c;
-        	fs(i,1,p,1){
-            	fs(j,1,q,1){
-                	c.dlt[i][j]=dlt[i][j]*b;
-            	}
-        	}
-        	c.p=p;
-        	c.q=q;
-        	return c;
-    	}
-    	void out(){
-        	fs(i,1,p,1){
-            	fs(j,1,q,1){
-                	cout<<dlt[i][j];
-                		cout<<' ';
-            	}
-            	cout<<endl;
-        	}
-    	}
-    	void in(int x,int y){
-        	p=x;
-        	q=y;
-        	fs(i,1,p,1){
-            	fs(j,1,q,1){
-                	cin>>dlt[i][j];
-            	}
-        	}
-    	}
+	    	kucan operator * (const kucan b) const{
+	       		kucan c;
+	        	if(b.p==q){
+	            	c.p=p;
+	            	c.q=b.q;
+	            	fs(i,1,c.p,1){
+	                	fs(j,1,c.q,1){
+	                    	ll jk=0;
+	                    	fs(k,1,q,1){
+	                        	jk+=dlt[i][k]*b.dlt[k][j];
+	                        	jk%=moda;
+	                    	}
+	                    	c.dlt[i][j]=jk;
+	                    	c.dlt[i][j]%=moda;
+	                	}
+	            	}
+				}
+	        	return c;
+	    	}
+	    	kucan operator * (const ll b) const{
+	        	kucan c;
+	        	fs(i,1,p,1){
+	            	fs(j,1,q,1){
+	                	c.dlt[i][j]=dlt[i][j]*b;
+	            	}
+	        	}
+	        	c.p=p;
+	        	c.q=q;
+	        	return c;
+	    	}
+	    	void out(){
+	        	fs(i,1,p,1){
+	            	fs(j,1,q,1){
+	                	cout<<dlt[i][j];
+	                		cout<<' ';
+	            	}
+	            	cout<<endl;
+	        	}
+	    	}
+	    	void in(int x,int y){
+	        	p=x;
+	        	q=y;
+	        	fs(i,1,p,1){
+	            	fs(j,1,q,1){
+	                	cin>>dlt[i][j];
+	            	}
+	        	}
+	    	}
 	};
 	inline ld cpi();
 	class circle{
@@ -215,8 +217,7 @@ namespace cmath{
 		int prcnt=0;
 		for(int i=a;i<=b;i++){
 			if(isprime(i)){
-				cprime[prcnt]=i;
-				prcnt++;
+				cprime[prcnt++]=i;
 			}
 		}
 	}
@@ -249,6 +250,70 @@ namespace cmath{
 				tmp2<<mom;
 				tmp2>>bbb;
 				return (flag)?aaa+'/'+bbb:aaa+' '+bbb;
+			}
+			void huaj(){
+				ll kk=cgcd(son,mom);
+				son/=kk;
+				mom/=kk;
+			}//»¯¼ò 
+			bool fu(){
+				huaj();
+				if(son<0&&mom<0){
+					son=-son;
+					mom=-mom;
+					return 0;
+				}else if(son>0&&mom>0){
+					return 0;
+				}
+				else return 1;
+			}
+			frac operator * (const frac b) const{
+				frac c;
+				c.son=son*b.son;
+				c.mom=mom*b.mom;
+				c.huaj();
+				return c;
+			}
+			frac operator / (const frac b) const{
+				frac c;
+				c.son=son*b.mom;
+				c.mom=mom*b.son;
+				c.huaj();
+				return c;
+			}
+			frac operator + (const frac b) const{
+				frac c;
+				c.mom=lcm(mom,b.mom);
+				c.son=son*(c.mom/mom)+b.son*(c.mom/b.mom);
+				c.huaj();
+				return c;
+			}
+			frac operator - (const frac b) const{
+				frac c;
+				c.mom=lcm(mom,b.mom);
+				c.son=son*(c.mom/mom)-b.son*(c.mom/b.mom);
+				c.huaj();
+				return c;
+			}
+			bool operator > (const frac b) const{
+				frac c=*this-b; 
+				if(c.fu()) return 0;
+				else return 1;
+			}
+			bool operator < (const frac b) const{
+				return b>*this;
+			}
+			bool operator <= (const frac b) const{
+				return !(*this>b);
+			}
+			bool operator >= (const frac b) const{
+				return !(b>*this);
+			}
+			bool operator != (const frac b) const{
+				return (b>*this)||(*this>b);
+			}
+			bool operator == (const frac b) const{
+				return !(*this>b)&&!(b>*this);
 			}
 	};
 }
@@ -304,7 +369,13 @@ namespace inout{
 	void makeout(int a){
 		for(int i=1;i<=a;++i)
 			out(i);
-	} 
+		fclose(stdin);
+		fclose(stdout);
+	}
+	void closefile(){
+		freopen("CON.exe","r",stdin);
+		freopen("CON.exe","w",stdout);
+	}
 }
 namespace ca{
 	using namespace crand;
