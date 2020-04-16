@@ -469,9 +469,44 @@ namespace inout{
 		freopen("CON.exe","w",stdout);
 	}
 }
+/*namespace cydebug{
+	void debug(int a,int b){
+		for(int i=a;i<=b;++i){
+			freopen("CON.exe","w",stdout);
+			std::cout<<"ÑéÖ¤²âÊÔµã"<<i<<"£º"; 
+			string ii,tmp1,tmp2;
+			stringstream iii;
+			char tmp;
+			iii<<i;
+			iii>>ii;
+			string debugname=dataname+"debugout"+ii+".out";
+			string outname=dataname+ii+".out"; 
+			string inname=dataname+ii+".in";
+			freopen(inname.c_str(),"r",stdin);
+			freopen(debugname.c_str(),"w",stdout);
+			system("myprogram.exe");
+			freopen(debugname.c_str(),"r",stdin);
+			while(cin>>tmp){
+				tmp1+=tmp;
+			}
+			freopen(outname.c_str(),"r",stdin);
+			while(cin>>tmp){
+				tmp2+=tmp;
+			}
+			freopen("CON.exe","w",stdout);
+			if(tmp1==tmp2){
+				std::cout<<"AC\n";
+			}
+			else{
+				std::cout<<"WA\n";
+			}
+		}
+	}
+}*/
 namespace ca{
 	using namespace crand;
 	using namespace cmath;
 	using namespace inout;
+	//using namespace cydebug;
 }
 #endif
