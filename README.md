@@ -16,6 +16,8 @@ cyrand_bool()	返回一个bool类型的随机数
 cyrand_engs()	返回任意一个小写字母
 cyrand_engb()	返回任意一个大写字母
 数学相关：
+stpolyon类：public成员：length,perimeter,edge
+		函数:oprc(flag)  flag作用和⚪一样
 circle类：public成员：r,c,area
 		函数：oprc(flag),opra(flag)	支持计算周长面积，flag==true时赋值到成员函数。
 cpi()	返回Π的值

@@ -1,16 +1,16 @@
 #ifndef CRAYON_H
 #define CRAYON_H 
 #include<bits/stdc++.h>
+#define db double
 #define ll long long
-#define ld long double
-#define makein(n) for(ci=1;ci<=n;ci++)
+#define ld long db
+#define makein(m,n) for(ci=m;ci<=n;ci++)
 #define csh cnt=0
 #define bh ++cnt
 #define ns "-1"
 #define fs(i,x,y,z) for(ll i=x;i<=y;i+=z)
 #define ft(i,x,y,z) for(ll i=x;i>=y;i+=z) 
 #define ull unsigned long long
-#define db double
 #define ms(a,b) memset(a,b,sizeof(a))
 #define sz(a) sizeof(a)
 #define lcm(x,y) (x/cgcd(x,y)*y)
@@ -20,7 +20,6 @@ int cprime[1000000];
 int ci;
 int cnt;
 const int N=151,inf=0x7f7f7f7f,moda=1000000007;
-bool debug;
 namespace crand{
 	bool isInit;
 	int MTindex;
@@ -69,14 +68,72 @@ namespace crand{
 		if(cyrand(0,1)==0)	return false;
 		else return true;
 	}
+	inline char cyrand_letter(){
+		return cyrand(32,126);
+	}
 	inline char cyrand_engs(){
 		return 'a'+cyrand(0,26);
 	}
 	inline char cyrand_engb(){
 		return 'A'+cyrand(0,26);
 	}
+	inline char cyrand_fomatc(){
+		switch(cyrand(0,4)){
+			case 0:{
+				return '\n';
+				break;
+			}
+			case 1:{
+				return '\t';
+				break;
+			}
+			case 2:{
+				return '\r';
+				break;
+			}
+			case 3:{
+				return '\v';
+				break;
+			}
+			case 4:{
+				return '\f';
+				break;
+			}
+		}
+	}
+	inline std::string cyrand_word(int a){
+		std::string chen_zhe;
+		for(int kkksc03=0;kkksc03<a;kkksc03++){
+			if(cyrand_bool()){
+				chen_zhe[kkksc03]=cyrand_engs();
+			}
+			else{
+				chen_zhe[kkksc03]=cyrand_engb();
+			}
+		}
+		return chen_zhe;
+	}
+	inline std::string cyrand_article(int a){
+		std::string soha;
+		soha=cyrand_word(cyrand(1,10));
+		for(int lzn=1;lzn<a;lzn++){
+			soha=soha+" "+cyrand_word(cyrand(1,10));
+		}
+		return soha;
+	}
 }
 namespace cmath{
+	class stpolyon{
+		public:
+			ld length,perimeter;
+			ll edge;
+			ld oprc(bool flag){
+				if(flag){
+					perimeter=(ld)edge*length;
+				}
+				return (ld)edge*length;
+			}
+	}; 
 	class kucan{
 		public:
     		ll p,q,dlt[N][N];//p*q
@@ -186,6 +243,40 @@ namespace cmath{
 					area=cpi()*r*r;
 				return cpi()*r*r;
 			}
+			circle operator + (const circle x) const{
+				circle tmp;
+				tmp.r=tmp.r+x.r;
+				tmp.c=2*tmp.r*cpi();
+				tmp.area=cpi()*tmp.r*tmp.r;
+				return tmp;
+			}
+			circle operator - (const circle x) const{
+				circle tmp;
+				tmp.r=tmp.r-x.r;
+				tmp.c=2*tmp.r*cpi();
+				tmp.area=cpi()*tmp.r*tmp.r;
+				return tmp;
+			}
+			bool operator > (const circle b) const{
+				circle c=*this-b;
+				if(c.r>0)	return true;
+				else return false;
+			}
+			bool operator >= (const circle b) const{
+				return !(b>*this);
+			}
+			bool operator < (const circle b) const{
+				return b>*this;
+			}
+			bool operator <= (const circle b) const{
+				return !(*this>b); 
+			}
+			bool operator == (const circle b) const{
+				return !(*this>b)&&!(b>*this);
+			}
+			bool operator != (const circle b) const{
+				return !(*this==b);
+			}
 	};
 	inline ld cpi(){
 		return 3.141592653589793238462643383279502884197169399;
@@ -225,6 +316,23 @@ namespace cmath{
 		return cprime[crand::cyrand(beg,end)];
 	}
 	class frac{
+		private:
+			void huaj(){
+				ll kk=cgcd(son,mom);
+				son/=kk;
+				mom/=kk;
+			}//化简
+			bool fu(){
+				huaj();
+				if(son<0&&mom<0){
+					son=-son;
+					mom=-mom;
+					return 0;
+				}else if(son>0&&mom>0){
+					return 0;
+				}
+				else return 1;
+			}
 		public:
 			int son,mom;
 			ld value(){
@@ -250,23 +358,7 @@ namespace cmath{
 				tmp2<<mom;
 				tmp2>>bbb;
 				return (flag)?aaa+'/'+bbb:aaa+' '+bbb;
-			}
-			void huaj(){
-				ll kk=cgcd(son,mom);
-				son/=kk;
-				mom/=kk;
-			}//化简 
-			bool fu(){
-				huaj();
-				if(son<0&&mom<0){
-					son=-son;
-					mom=-mom;
-					return 0;
-				}else if(son>0&&mom>0){
-					return 0;
-				}
-				else return 1;
-			}
+			} 
 			frac operator * (const frac b) const{
 				frac c;
 				c.son=son*b.son;
@@ -350,7 +442,7 @@ namespace inout{
 		cout<<a;
 		bh;
 	}
-	void out(int a){/*参考了一下crayon完成了*/ 
+	inline void out(int a){/*参考了一下crayon完成了*/ 
 		freopen("CON.exe","r",stdin);
 		freopen("CON.exe","w",stdout);
 		stringstream aa;
@@ -366,13 +458,13 @@ namespace inout{
 		freopen("CON.exe","r",stdin);
 		freopen("CON.exe","w",stdout);
 	}
-	void makeout(int a){
-		for(int i=1;i<=a;++i)
+	inline void makeout(int b,int a){
+		for(int i=b;i<=a;++i)
 			out(i);
 		fclose(stdin);
 		fclose(stdout);
 	}
-	void closefile(){
+	inline void closefile(){
 		freopen("CON.exe","r",stdin);
 		freopen("CON.exe","w",stdout);
 	}
