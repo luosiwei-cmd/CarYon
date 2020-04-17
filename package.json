@@ -1,0 +1,22 @@
+{
+  "name": "datamaker-caryon",
+  "version": "1.2.2",
+  "description": "数据生成",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luosiwei-cmd/caryon.git"
+  },
+  "keywords": [
+    "数据生成"
+  ],
+  "author": "luosw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luosiwei-cmd/caryon/issues"
+  },
+  "homepage": "https://github.com/luosiwei-cmd/caryon#readme"
+}

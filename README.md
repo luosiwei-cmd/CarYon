@@ -1,5 +1,15 @@
 # CarYon
 
+# 项目基本简介：
+
+项目logo：
+
+![CarYon](https://s1.ax1x.com/2020/04/17/JVvEWj.png)
+
+项目开发者：![](https://img.shields.io/badge/Avatar-luosw-red.svg)
+
+项目最新版本：![](https://img.shields.io/badge/Version-1.2.2-green.svg)
+
 访问：http://luosw.fun/caryon
 
 查看详情。
@@ -271,6 +281,15 @@ int main(){
 - 支持生成随机字母，字符，文章，单词，转义字符
 - 新增了正多边形类
 - 支持自定义数据起始和终止
+
+### CarYon 1.2.1
+
+隐式更新，没有实际功能更新
+
+### CarYon 1.2.2
+
+- 发布于2020.4.17
+- 增加了一个灰度功能（就不告诉你是哪个）
 
 ---
 

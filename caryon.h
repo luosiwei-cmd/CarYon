@@ -14,8 +14,7 @@
 #define ms(a,b) memset(a,b,sizeof(a))
 #define sz(a) sizeof(a)
 #define lcm(x,y) (x/cgcd(x,y)*y)
-using namespace std;
-string dataname;
+std::string dataname;
 int cprime[1000000];
 int ci;
 int cnt;
@@ -213,10 +212,10 @@ namespace cmath{
 	    	void out(){
 	        	fs(i,1,p,1){
 	            	fs(j,1,q,1){
-	                	cout<<dlt[i][j];
-	                		cout<<' ';
+	                	std::cout<<dlt[i][j];
+	                	std::cout<<' ';
 	            	}
-	            	cout<<endl;
+	            	std::cout<<std::endl;
 	        	}
 	    	}
 	    	void in(int x,int y){
@@ -224,7 +223,7 @@ namespace cmath{
 	        	q=y;
 	        	fs(i,1,p,1){
 	            	fs(j,1,q,1){
-	                	cin>>dlt[i][j];
+	                	std::cin>>dlt[i][j];
 	            	}
 	        	}
 	    	}
@@ -315,6 +314,10 @@ namespace cmath{
 	inline int crprimenum(int beg,int end){
 		return cprime[crand::cyrand(beg,end)];
 	}
+	class rectangle{
+		public:
+			int a,b,peri,area;
+	}; 
 	class frac{
 		private:
 			void huaj(){
@@ -338,21 +341,21 @@ namespace cmath{
 			ld value(){
 				return (ld)son/mom;
 			}
-			string take(bool flag){
+			std::string take(bool flag){
 				int c=cgcd(son,mom);
 				son/=c;
 				mom/=c;
-				stringstream tmp1,tmp2;
-				string aaa,bbb;
+				std::stringstream tmp1,tmp2;
+				std::string aaa,bbb;
 				tmp1<<son;
 				tmp1>>aaa;
 				tmp2<<mom;
 				tmp2>>bbb;
 				return (flag)?aaa+'/'+bbb:aaa+' '+bbb;
 			}
-			string fracr(bool flag){
-				stringstream tmp1,tmp2;
-				string aaa,bbb;
+			std::string fracr(bool flag){
+				std::stringstream tmp1,tmp2;
+				std::string aaa,bbb;
 				tmp1<<son;
 				tmp1>>aaa;
 				tmp2<<mom;
@@ -411,46 +414,46 @@ namespace cmath{
 }
 namespace inout{
 	inline void inint(int a){
-		string c,ccci,tnmp;
-		stringstream ss,cci;
+		std::string c,ccci,tnmp;
+		std::stringstream ss,cci;
 		if(cnt==0){
 			cci<<ci;
 			cci>>ccci;
-			string name=dataname+ccci+".in";
+			std::string name=dataname+ccci+".in";
 			freopen(name.c_str(),"w",stdout);
 			freopen(name.c_str(),"r",stdin);
 		}
 		ss<<a;
 		ss>>c;
-		cin>>tnmp;
+		std::cin>>tnmp;
 		c=tnmp+c;
-		cout<<c;
+		std::cout<<c;
 		bh;
 	}
-	inline void instring(string a){
-		string ccci,tnmp;
+	inline void instring(std::string a){
+		std::string ccci,tnmp;
 		if(cnt==0){
-			stringstream cci;
+			std::stringstream cci;
 			cci<<ci;
 			cci>>ccci;
-			string name=dataname+ccci+".in";
+			std::string name=dataname+ccci+".in";
 			freopen(name.c_str(),"w",stdout);
 			freopen(name.c_str(),"r",stdin);
 		}
-		cin>>tnmp;
+		std::cin>>tnmp;
 		a=tnmp+a;
-		cout<<a;
+		std::cout<<a;
 		bh;
 	}
 	inline void out(int a){/*参考了一下crayon完成了*/ 
 		freopen("CON.exe","r",stdin);
 		freopen("CON.exe","w",stdout);
-		stringstream aa;
-		string aaa;
+		std::stringstream aa;
+		std::string aaa;
 		aa<<a;
 		aa>>aaa;
-		string abc;
-		string name=dataname+aaa+".in";
+		std::string abc;
+		std::string name=dataname+aaa+".in";
 		freopen(name.c_str(),"r",stdin);
 		std::string outname=dataname+aaa+".out";
 		freopen(outname.c_str(),"w",stdout);
