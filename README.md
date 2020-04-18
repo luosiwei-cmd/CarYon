@@ -189,6 +189,7 @@ cyrand_letter(); //随机字符
 这里还有数学库：
 
 ```cpp
+
 stpolyon正多边形类：public成员：length,perimeter,edge
 		函数:oprc(flag)  //flag作用和circle类的东西一样
 circle圆类：public成员：r,c,area
@@ -203,6 +204,8 @@ lcm(a,b)   	//同理
 isprime(a)	//判断是不是质数
 cmakeprime(int a, int b)	//生成在[a,b]的质数，储存在数组cprime中
 crprimenum(int a,int b)	//返回已经制作的序号在[a,b]的一个随机质数
+quadtri类：public成员:a,b,c,s
+            函数：make(char),makecanfac(char) //char分别就是二次三项式的字母，make制作一个普通的二次三项式，返回值为quadtri型，makecanfac制作一个可以被因式分解的二次三项式，返回值为quadtri型
 frac类：public成员：son,mom //分别是分子和分母
 		函数：value()	//返回分数的值
 			take(flag)	//返回约分后的分数，flag为真时有分数线'/'
