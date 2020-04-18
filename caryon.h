@@ -122,6 +122,30 @@ namespace crand{
 	}
 }
 namespace cmath{
+	class quadtri{
+		public:
+			int a,b,c;
+			char s;
+			quadtri make(char abc){
+				quadtri tmp;
+				tmp.s=abc;
+				tmp.a=crand::cyrand(-100,100);
+				tmp.b=crand::cyrand(-100,100);
+				tmp.c=crand::cyrand(-100,100);
+				return tmp;
+			}
+			quadtri makecanfac(char abc){
+				quadtri tmp;
+				do{
+					tmp.s=abc;
+					tmp.a=crand::cyrand(-100,100);
+					tmp.b=crand::cyrand(-100,100);
+					tmp.c=crand::cyrand(-100,100);
+					int aaa=b*b-4*a*c;
+				}while(!(aaa==(int)sqrt(n)*(int)sqrt(n)));
+				return tmp;
+			}
+	};
 	class stpolyon{
 		public:
 			ld length,perimeter;
@@ -476,33 +500,19 @@ namespace inout{
 	void debug(int a,int b){
 		for(int i=a;i<=b;++i){
 			freopen("CON.exe","w",stdout);
-			std::cout<<"ÑéÖ¤²âÊÔµã"<<i<<"£º"; 
-			string ii,tmp1,tmp2;
-			stringstream iii;
+			std::string ii,tmp1,tmp2;
+			std::stringstream iii;
 			char tmp;
 			iii<<i;
 			iii>>ii;
-			string debugname=dataname+"debugout"+ii+".out";
-			string outname=dataname+ii+".out"; 
-			string inname=dataname+ii+".in";
+			std::string debugname=dataname+"debugout"+ii+".out";
+			std::string outname=dataname+ii+".out"; 
+			std::string inname=dataname+ii+".in";
 			freopen(inname.c_str(),"r",stdin);
 			freopen(debugname.c_str(),"w",stdout);
 			system("myprogram.exe");
-			freopen(debugname.c_str(),"r",stdin);
-			while(cin>>tmp){
-				tmp1+=tmp;
-			}
-			freopen(outname.c_str(),"r",stdin);
-			while(cin>>tmp){
-				tmp2+=tmp;
-			}
-			freopen("CON.exe","w",stdout);
-			if(tmp1==tmp2){
-				std::cout<<"AC\n";
-			}
-			else{
-				std::cout<<"WA\n";
-			}
+			std::string aaaaaa="cmp --silent "+debugname+" "+outname+" && echo 'files are same' || echo 'files are different'";
+			system(aaaaaa.c_str());
 		}
 	}
 }*/

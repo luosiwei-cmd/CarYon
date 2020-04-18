@@ -8,7 +8,7 @@
 
 项目开发者：![](https://img.shields.io/badge/Avatar-luosw-red.svg)
 
-项目最新版本：![](https://img.shields.io/badge/Version-1.2.2-green.svg)
+项目最新版本：![](https://img.shields.io/badge/Version-1.3.0-green.svg)
 
 访问：http://luosw.fun/caryon
 
@@ -290,6 +290,11 @@ int main(){
 
 - 发布于2020.4.17
 - 增加了一个灰度功能（就不告诉你是哪个）
+
+## CarYon 1.3
+
+- 发布于2020.4.18
+- 新增了二次三项式类
 
 ---
 
