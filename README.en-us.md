@@ -2,7 +2,7 @@ CarYon
 
 
 
-#Basic introduction of the project:
+# Basic introduction of the project:
 
 
 
@@ -34,7 +34,7 @@ Preface
 
 
 
-##What is this for?
+## What is this for?
 
 
 
@@ -42,13 +42,13 @@ Have you ever had any of the following problems when organizing your own oi comp
 
 
 
--Want to quickly generate a paragraph of text?
+- Want to quickly generate a paragraph of text?
 
--Want to do math quickly to generate data?
+- Want to do math quickly to generate data?
 
--Do you want to generate test data one by one without waiting for freeopen?
+- Do you want to generate test data one by one without waiting for freeopen?
 
--Want to generate a set of random data or series?
+- Want to generate a set of random data or series?
 
 
 
@@ -56,13 +56,13 @@ So, you can use caryon and C + + to generate data quickly. Currently supported f
 
 
 
--Randomly generate a passage, some words, some letters
+- Randomly generate a passage, some words, some letters
 
--Free formulation of random number without the limitation of rand_max
+- Free formulation of random number without the limitation of rand_max
 
--Math library under development, supporting multiple features
+- Math library under development, supporting multiple features
 
--Build some circles, regular polygons and fractions, and use them to do operations
+- Build some circles, regular polygons and fractions, and use them to do operations
 
 
 
@@ -78,11 +78,11 @@ I hope you guys will come together to help improve this project. Hope this proje
 
 
 
-##Basic rules for use
+## Basic rules for use
 
 
 
->No competition, no progress
+> No competition, no progress
 
 
 
@@ -98,9 +98,9 @@ Now there are two ways to use it:
 
 
 
--Free version: big update every 2 weeks.
+- Free version: big update every 2 weeks.
 
--Contact author Customization: see my post for details.
+- Contact author Customization: see my post for details.
 
 
 
@@ -124,7 +124,7 @@ The above is the original post.
 
 
 
-##Something wrong?
+## Something wrong?
 
 
 
@@ -132,15 +132,15 @@ Welcome to GitHub warehouse to ask questions, and also welcome to post this arti
 
 
 
-My Logue: loosw
+My Logue: luosw
 
 
 
-#Instructions for use
+# Instructions for use
 
 
 
-##How to install?
+## How to install?
 
 
 
@@ -148,11 +148,11 @@ You can go to GitHub warehouse to download the latest version, link to the next 
 
 
 
-` ` ` `
+```
 
 $ npm install datamaker-caryon --save
 
-` ` ` `
+```
 
 
 
@@ -160,7 +160,7 @@ Install a stable version of this data generator.
 
 
 
-##GitHub warehouse address
+## GitHub warehouse address
 
 
 
@@ -172,7 +172,7 @@ Remember star~
 
 
 
-##Basic operation
+## Basic operation
 
 
 
@@ -186,11 +186,11 @@ Xxxxx;
 
 }
 
-` ` ` `
+```
 
 
 
-This operation is used to generate files: ` 1. In-10. In '. You can freely change the two parameters of' make in 'to replace them. After executing 'test. CPP', we will find that there are more '1. In ~ 10. In' files in the root directory, which is the result of manufacturing.
+This operation is used to generate files: ` 1. In-10. In `. You can freely change the two parameters of' make in 'to replace them. After executing 'test. CPP', we will find that there are more '1. In ~ 10. In' files in the root directory, which is the result of manufacturing.
 
 
 
@@ -202,7 +202,7 @@ CSH is absolutely irreplaceable!
 
 Dataname= "";
 
-` ` ` `
+```
 
 
 
@@ -232,7 +232,7 @@ XXX;
 
 }
 
-` ` ` `
+```
 
 
 
@@ -248,7 +248,7 @@ Remember to use it when we're done with everything
 
 Closefile ();
 
-` ` ` `
+```
 
 
 
@@ -284,7 +284,7 @@ makeout(1,10);
 
 }
 
-` ` ` `
+```
 
 
 
@@ -300,7 +300,7 @@ Let's make a random number:
 
 Cyrand(a, b);
 
-` ` ` `
+```
 
 
 
@@ -326,7 +326,7 @@ Inint(a);
 
 Instring(b);
 
-` ` ` `
+```
 
 
 
@@ -338,7 +338,7 @@ These two functions are used to input things into the 'in' file. If we want to i
 
 inint(cyrand());
 
-` ` ` `
+```
 
 
 
@@ -366,7 +366,7 @@ Cyrand_article(a); / / random paragraph with a word
 
 Cyrand_letter(); / / random characters
 
-` ` ` `
+```
 
 
 
