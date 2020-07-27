@@ -134,6 +134,7 @@ namespace cmath{
 				tmp.c=crand::cyrand(-100,100);
 				return tmp;
 			}
+			int aaa;
 			quadtri makecanfac(char abc){
 				quadtri tmp;
 				do{
@@ -141,8 +142,22 @@ namespace cmath{
 					tmp.a=crand::cyrand(-100,100);
 					tmp.b=crand::cyrand(-100,100);
 					tmp.c=crand::cyrand(-100,100);
-					int aaa=b*b-4*a*c;
-				}while(!(aaa==(int)sqrt(n)*(int)sqrt(n)));
+					aaa=b*b-4*a*c;
+				}while(!(aaa==(int)sqrt(aaa)*(int)sqrt(aaa)));
+				return tmp;
+			}
+			quadtri operator + (const quadtri b)const{
+				quadtri tmp;
+				tmp.a=tmp.a+b.a;
+				tmp.b=tmp.b+b.b;
+				tmp.c=tmp.c+b.c;
+				return tmp;
+			}
+			quadtri operator - (const quadtri b)const{
+				quadtri tmp;
+				tmp.a=tmp.a-b.a;
+				tmp.b=tmp.b-b.b;
+				tmp.c=tmp.c-b.c;
 				return tmp;
 			}
 	};
@@ -496,7 +511,7 @@ namespace inout{
 		freopen("CON.exe","w",stdout);
 	}
 }
-/*namespace cydebug{
+namespace cydebug{
 	void debug(int a,int b){
 		for(int i=a;i<=b;++i){
 			freopen("CON.exe","w",stdout);
@@ -511,15 +526,32 @@ namespace inout{
 			freopen(inname.c_str(),"r",stdin);
 			freopen(debugname.c_str(),"w",stdout);
 			system("myprogram.exe");
-			std::string aaaaaa="cmp --silent "+debugname+" "+outname+" && echo 'files are same' || echo 'files are different'";
+			std::string aaaaaa="comp "+debugname+" "+outname;
+			freopen("CON.exe","r",stdin);
+			freopen("debug.log","w",stdout);
 			system(aaaaaa.c_str());
+			freopen("debug.log","r",stdin);
+			std::string ttttt;
+			std::cin>>ttttt;
+			std::cin>>ttttt;
+			freopen("CON.exe","w",stdout);
+			freopen("CON.exe","r",stdin);
+			if(ttttt=="文件比较无误"){
+				std::cout<<"AC\n";
+			}
+			else{
+				std::cout<<"WA\n";
+			}
+			freopen("CON.exe","w",stdout);
+			freopen("CON.exe","r",stdin);
+			system("del debug.log");
 		}
 	}
-}*/
+}
 namespace ca{
 	using namespace crand;
 	using namespace cmath;
 	using namespace inout;
-	//using namespace cydebug;
+	using namespace cydebug;
 }
 #endif
