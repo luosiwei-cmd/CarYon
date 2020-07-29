@@ -3,12 +3,13 @@
 using namespace std;
 using namespace ca;
 int main(){
-	dataname="data";
-	makein(10)/*生成10组in数据*/{
+	dataname="";
+	makein(1,10)/*生成10组in数据*/{
 		csh;
 		inint(cyrand(0,100));
 		instring("  ");
 		inint(cyrand(0,100));
 	}
-	makeout(10);
+	makeout(1,10);
+	closefile();
 }

@@ -5,7 +5,6 @@
 #define ll long long
 #define ld long db
 #define makein(m,n) for(ci=m;ci<=n;ci++)
-#define csh cnt=0
 #define bh ++cnt
 #define ns "-1"
 #define fs(i,x,y,z) for(ll i=x;i<=y;i+=z)
@@ -19,6 +18,10 @@ int cprime[1000000];
 int ci;
 int cnt;
 const int N=151,inf=0x7f7f7f7f,moda=1000000007;
+bool ___flag=false;
+void csh(){
+	cnt=0;
+}
 namespace crand{
 	bool isInit;
 	int MTindex;
@@ -456,9 +459,14 @@ namespace inout{
 		std::string c,ccci,tnmp;
 		std::stringstream ss,cci;
 		if(cnt==0){
+			if(!___flag){
+				std::string a666="mkdir data-"+dataname;
+				system(a666.c_str());
+				___flag=true;
+			}
 			cci<<ci;
 			cci>>ccci;
-			std::string name=dataname+ccci+".in";
+			std::string name="data-"+dataname+"./"+dataname+ccci+".in";
 			freopen(name.c_str(),"w",stdout);
 			freopen(name.c_str(),"r",stdin);
 		}
@@ -472,10 +480,15 @@ namespace inout{
 	inline void instring(std::string a){
 		std::string ccci,tnmp;
 		if(cnt==0){
+			if(!___flag){
+				std::string a666="mkdir data-"+dataname;
+				system(a666.c_str());
+				___flag=true;
+			}
 			std::stringstream cci;
 			cci<<ci;
 			cci>>ccci;
-			std::string name=dataname+ccci+".in";
+			std::string name="data-"+dataname+"./"+dataname+ccci+".in";
 			freopen(name.c_str(),"w",stdout);
 			freopen(name.c_str(),"r",stdin);
 		}
@@ -484,69 +497,60 @@ namespace inout{
 		std::cout<<a;
 		bh;
 	}
-	inline void out(int a){/*参考了一下crayon完成了*/ 
-		freopen("CON.exe","r",stdin);
+	inline void out(int a){
 		freopen("CON.exe","w",stdout);
+		freopen("CON.exe","r",stdin);
 		std::stringstream aa;
 		std::string aaa;
 		aa<<a;
 		aa>>aaa;
 		std::string abc;
-		std::string name=dataname+aaa+".in";
+		std::string name="data-"+dataname+"./"+dataname+aaa+".in";
 		freopen(name.c_str(),"r",stdin);
-		std::string outname=dataname+aaa+".out";
+		std::string outname="data-"+dataname+"./"+dataname+aaa+".out";
 		freopen(outname.c_str(),"w",stdout);
 		system("std.exe");
-		freopen("CON.exe","r",stdin);
-		freopen("CON.exe","w",stdout);
 	}
 	inline void makeout(int b,int a){
-		for(int i=b;i<=a;++i)
+		for(int i=b;i<=a;++i){
 			out(i);
-		fclose(stdin);
-		fclose(stdout);
+			freopen("CON.exe","r",stdin);
+			freopen("CON.exe","w",stdout);
+			std::stringstream _a;
+			std::string _i;
+			_a<<i;
+			_a>>_i;
+			std::string fff="正在生成文件："+dataname+_i+".out...\n";
+			printf(fff.c_str());
+		}
+		printf("out文件生成完毕，您可以在data-您的dataname文件夹中访问生成的所有文件。\n");
 	}
-	inline void closefile(){
-		freopen("CON.exe","r",stdin);
+	inline void closefile(){		
 		freopen("CON.exe","w",stdout);
+		freopen("CON.exe","r",stdin);
 	}
 }
 namespace cydebug{
-	void debug(int a,int b){
+	void makeDebugFile(int a,int b){
+		std::string ___a="mkdir debug-"+dataname;
+		system(___a.c_str());
 		for(int i=a;i<=b;++i){
 			freopen("CON.exe","w",stdout);
-			std::string ii,tmp1,tmp2;
-			std::stringstream iii;
-			char tmp;
-			iii<<i;
-			iii>>ii;
-			std::string debugname=dataname+"debugout"+ii+".out";
-			std::string outname=dataname+ii+".out"; 
-			std::string inname=dataname+ii+".in";
-			freopen(inname.c_str(),"r",stdin);
-			freopen(debugname.c_str(),"w",stdout);
+			freopen("CON.exe","r",stdin);
+			std::stringstream debug1;
+			std::string Debug1;
+			debug1<<i;
+			debug1>>Debug1;
+			std::string debugname1="debug-"+dataname+"./"+dataname+Debug1+".ans";
+			std::string debugname2="data-"+dataname+"./"+dataname+Debug1+".in";
+			freopen(debugname1.c_str(),"w",stdout);
+			freopen(debugname2.c_str(),"r",stdin);
 			system("myprogram.exe");
-			std::string aaaaaa="comp "+debugname+" "+outname;
-			freopen("CON.exe","r",stdin);
-			freopen("debug.log","w",stdout);
-			system(aaaaaa.c_str());
-			freopen("debug.log","r",stdin);
-			std::string ttttt;
-			std::cin>>ttttt;
-			std::cin>>ttttt;
-			freopen("CON.exe","w",stdout);
-			freopen("CON.exe","r",stdin);
-			if(ttttt=="文件比较无误"){
-				std::cout<<"AC\n";
-			}
-			else{
-				std::cout<<"WA\n";
-			}
-			freopen("CON.exe","w",stdout);
-			freopen("CON.exe","r",stdin);
-			system("del debug.log");
 		}
 	}
+	void debug(int a,int b){
+		makeDebugFile(a,b);
+	}	
 }
 namespace ca{
 	using namespace crand;
