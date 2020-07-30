@@ -1,379 +1,382 @@
-# CarYon
+# Basic introduction to the project
 
-
-
-# Basic introduction of the project:
-
-
-
-Project logo:
-
-
+Project logo：
 
 ![CarYon](https://s1.ax1x.com/2020/04/17/JVvEWj.png)
 
+Project developer:![img](https://img.shields.io/badge/Avatar-luosw-red.svg)
 
+The latest version of the project: ![img](https://img.shields.io/badge/Version-2.0.0-green.svg)
 
-Project developer: ![project](https://img.shields.io/badge/avatar-luosw-red.svg)
+# Front
 
+Have you ever encountered the following problems when holding a self-contained OI match:
 
-
-Latest project version: ![version](https://img.shields.io/badge/version-1.3.0-green.svg)
-
-
-
-Visit: http://luosw.fun/caryon
-
-
-
-View details.
-
-
-
-Preface
-
-
-
-## What is this for?
-
-
-
-Have you ever had any of the following problems when organizing your own oi competition
-
-
-
-- Want to quickly generate a paragraph of text?
-
-- Want to do math quickly to generate data?
-
-- Do you want to generate test data one by one without waiting for freeopen?
-
+- Want to quickly produce a paragraph of text?
+- Want to quickly perform mathematical operations to generate data?
+- Want to generate test data one by one without using freopen?
 - Want to generate a set of random data or series?
+- Quickly generate data to match the two programs?
 
+Then, you can use CarYon and C++ to quickly generate data. Previously supported features are:
 
+- Randomly generate a chapter, some words, some words
+- Get out of the limitation of RAND_MAX, freely draft random numbers
+- Mathematics library under development, supporting multiple features
+- Create some circles, regular polygons and fractions, and use it to perform calculations
 
-So, you can use caryon and C + + to generate data quickly. Currently supported features are:
+------
 
+Perform **test.cpp** in real **1** within minutes to have the intensity data
 
-
-- Randomly generate a passage, some words, some letters
-
-- Free formulation of random number without the limitation of rand_max
-
-- Math library under development, supporting multiple features
-
-- Build some circles, regular polygons and fractions, and use them to do operations
-
-
-
----
-
-
-
-**Execute test.cpp to generate strong data in 1 minute**
-
-
-
-I hope you guys will come together to help improve this project. Hope this project can help you save time!
-
-
-
-## Basic rules for use
-
-
-
-> No competition, no progress
-
-
-
-There are already two test data generators, but as on earth, there must be competition, competition, and progress.
-
-
-
-**So we launched caryon * * to get you used to it, our library is still named 'crayon. H'.
-
-
-
-Now there are two ways to use it:
-
-
-
-- Free version: big update every 2 weeks.
-
-- Contact author Customization: see my post for details.
-
-
-
----
-
-
-
-GitHub warehouse will be placed in this post this afternoon.
-
-
-
----
-
-
-
-If you need an authorized version, please contact luosw
-
-
-
-The above is the original post.
-
-
+Hope you guys can help improve this project. Hope this item can help everyone save time!
 
 ## Something wrong?
 
-
-
-Welcome to GitHub warehouse to ask questions, and also welcome to post this article.
-
-
-
-My Logue: luosw
-
-
+You are welcome to send an issue to the Github repository to ask questions, and you are also welcome to post in this chapter.
 
 # Instructions for use
 
-
-
 ## How to install?
 
+### **npm** installation (stable version)
 
+You can go to the GitHub repository to download the latest version, the link is in the next title, and it can also be used with node-js installed：
 
-You can go to GitHub warehouse to download the latest version, link to the next title, and use it on the premise of node JS installation:
-
-
-
-```
-
+```shell
 $ npm install datamaker-caryon --save
-
 ```
 
+nstall the stable version of this data generator.
 
-
-Install a stable version of this data generator.
-
-
-
-## GitHub warehouse address
-
-
+### **GitHub** repository (latest version)
 
 https://github.com/luosiwei-cmd/caryon
 
+Everyone, remember to star~
 
+### **exe** installation (stable version)
 
-Remember star~
+Visit **[http://luosw.fun/caryon/caryon-setup.exe to](https://translate.google.com/translate?hl=zh-CN&prev=_t&sl=auto&tl=en&u=http://luosw.fun/caryon/caryon-setup.exe)** download the installation package, run the installation package, in the installation directory (the default isC://Program Files(x86)/CarYon) can find the corresponding `caryon.h` file.
 
+## Data generation
 
+The basic operations below are to include the header file `caryon.h` . Note that the header file must be included in the program’s directory folder after being compiled
 
-## Basic operation
-
-
+Only the `caryon.h.gch` file produced later can the data generator be used.
 
 ```cpp
-
 makein(1,10){
-
-CSH;
-
-Xxxxx;
-
+    csh();
+	xxxxx;
 }
-
 ```
 
+This operation is used to create files: `1. In-10.in` , you can freely change the two parameters of `makein` for replacement. E.g`makein(3,5)` is to produce `3.in-5.in` .When we finish `test.cpp` , we will find that there is an extra folder in the root directory. There are files from `1.in to 10.in`. This isIs the result of manufacturing
 
+`csh();`The command must not be changed or replaced!
 
-This operation is used to generate files: ` 1. In-10. In `. You can freely change the two parameters of' make in 'to replace them. After executing 'test. CPP', we will find that there are more '1. In ~ 10. In' files in the root directory, which is the result of manufacturing.
-
-
-
-CSH is absolutely irreplaceable!
-
-
+Here:
 
 ```cpp
-
-Dataname= "";
-
+dataname="";
 ```
 
-
-
-This is prefixed, for example:
-
-
+This is to fill in the prefix, such as the following program:
 
 ```cpp
-
 #include"caryon.h"
-
 using namespace std;
-
 using namespace ca;
-
-Int main () {
-
-dataname="chen_zhe-ak-ioi";
-
-makein(1,10){
-
-CSH;
-
-XXX;
-
+int main(){
+	dataname="chen_zhe-ak-ioi";
+	makein(1,10){
+		csh();
+		xxx;
+	}
 }
-
-}
-
 ```
 
+It will be created in the folder `data-chen_zhe-ak- ioi` of the root directory into `chen_zhe-ak-ioi1.in~chen_zhe-ak-ioi10.in` .
 
+Note that due to the new version, no spaces can appear in the dataname field! ! !
 
-It will generate 'ABCD ak-ioi1. In ~ ABCD ak-ioi10. In' in the root directory.
-
-
-
-Remember to use it when we're done with everything
-
-
+After all our things are done, remember to us
 
 ```cpp
-
-Closefile ();
-
+closefile();
 ```
 
+Function to free up memory space. (The effect is similar to fclose, you don’t need to write it)
 
-
-Function to free memory space.
-
-
-
-We have learned to create in files. How to create out files? Let's enrich the previous examples:
-
-
+We have learned to create` in` files, how to create corresponding` out `files? Let's enrich the previous examples:
 
 ```cpp
-
 #include"caryon.h"
-
 using namespace std;
-
 using namespace ca;
-
-Int main () {
-
-dataname="chen_zhe-ak-ioi";
-
-makein(1,10){
-
-CSH;
-
-XXX;
-
+int main(){
+	dataname="chen_zhe-ak-ioi";
+	makein(1,10){
+		csh();
+		xxx;
+	}
+    makeout(1,10);
 }
-
-makeout(1,10);
-
-}
-
 ```
 
+At this time, there must be a `std.exe` file in the directory where `test.cpp` is located , which is commonly known as a standard program. Note that it must be the standard.
 
+After the program is compiled, the `std.exe` file can produce the corresponding out file.
 
-At this time, there must be a 'std.exe' file in the directory where 'test. CPP' is located, which is also known as the standard program.
-
-
-
-Let's make a random number:
-
-
+Let's create a random number below:
 
 ```cpp
-
-Cyrand(a, b);
-
+cyrand(a,b);
 ```
 
+Its function is to return a random number between `a` and `b` .
 
+The MT19337 (or Mason rotation method) used by this random number breaks through the limitation of C++'s native RAND_MAX.
 
-His function is to return a random number between 'a' and 'B'.
+(If you want to generate a random number in the `long long` range, use `cyrand_ll()`).
 
-
-
-This random number uses mt19337 (or Mason rotation method) which breaks through the limitation of rand_max in C + +.
-
-
-
-(if you want to generate a random number in the range of 'long long long', use cyrand'll()).
-
-
-
-Let's see how to store integer variables in the input file:
-
-
+Let's take a look at how to store integer variables in the input file:
 
 ```cpp
-
-Inint(a);
-
-Instring(b);
-
+inint(a);
+instring(b);
 ```
 
-
-
-These two functions are used to input things into the 'in' file. If we want to input a random number, we write as follows:
-
-
+Both of these functions are used to input things into the `in` file. If we want to input a random number, we write:
 
 ```cpp
-
 inint(cyrand());
-
 ```
 
+That's it.
 
+For Example:
 
-Just fine.
+```cpp
+#include"caryon.h"
+using namespace std;
+using namespace ca;
+int main(){
+    dataname="test";
+    makein(1,10){
+        csh();
+        inint(cyrand(0,100));
+    }
+}
+```
 
+Of Contents will find in the data-test folder in the display will appear `test1.in-test10.in` files, Using Notepad to open these files,
 
+You will find that every file has a random number.
+
+If you don’t know how to use Notepad to open `in` files and `out` files, please right-click the file, click Open Mode, and find your note
+
+this. Or you can use Dev-C++, open the software, and drag the `in` file into it.
+
+For this program, if we write `std.cpp` like this :
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a;
+    cin>>a;
+    cout<<a+10;
+    return 0;
+}
+```
+
+After compiling, change `test.cpp` to:
+
+```cpp
+#include"caryon.h"
+using namespace std;
+using namespace ca;
+int main(){
+    dataname="test";
+    makein(1,10){
+        csh();
+        inint(cyrand(0,100));
+    }
+    makeout(1,10);
+}
+```
+
+Then use Notepad to open the `in` and `out` files separately , you can find that the number of each in file is added $10$ the result is out.
+
+Due to the support of the new version's features and features, there will be a prompt when the file is created, so you don't have to worry about which frame is jumping and jumping!
+
+This is the working principle of the entire data generator.
 
 We can also generate many random things, such as:
 
+```cpp
+cyrand_bool (); //Random Boolean type value
+cyrand_engs (); //Random English lowercase letters
+cyrand_engb (); //Random English uppercase letters
+cyrand_formatc (); //random escape character
+cyrand_word ( a ); //A random word of length a
+cyrand_article ( a ); //A random paragraph with a vocabulary
+cyrand_letter (); //random character
+```
 
+These things can be used to DIY and achieve the desired effect.
+
+There is also a math library.
+
+## Program match
+
+In the course of the competition, in order to check whether the algorithm with low complexity is correct, it is usually used to compile a low-level algorithm to solve the same problem.
+
+Then use a large sample at the same time to shoot the results of these two programs.
+
+Now CarYon finally supports the camera-matching function! ! !
+
+The matching of the program can be divided into the following steps:
+
+1. Write `myprogram.cpp` in the current directory and compile it into a `myprogram.exe` file;
+2. Write `test.cpp `and `std.cpp` according to the data generation module ;
+3. Add a line after`test.cpp`：
 
 ```cpp
+debug(/*start*/,/*end*/);
+```
 
-Cyrand_bool(); / / random Boolean value
+For example, if you are confidently submitting the high-precision a+b, you need to use low-precision values to match your program.
 
-Cyrand_engs(); / / random English small letters
+First, put the following high-precision version a+b into your `myprogram.cpp` and compile it into `myprogram.exe` :
 
-Cyrand_engb(); / / random English capital letters
-
-Cyrand_format(); / / random escape character
-
-Cyrand_word(a); / / a random word of length a
-
-Cyrand_article(a); / / random paragraph with a word
-
-Cyrand_letter(); / / random characters
+```cpp
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main()
+{
+	string a,b;
+	int xa[500]={},xb[500]={},tot[500]={};
+	cin>>a>>b;
+	for(int i=0;i<a.length();i++)
+		xa[i]=a[a.length()-i-1]-'0';
+	for(int i=0;i<b.length();i++)
+		xb[i]=b[b.length()-i-1]-'0';
+	int len=max(a.length(),b.length());
+	for(int i=0;i<len;i++)
+		tot[i]=xa[i]+xb[i];
+	for(int i=0;i<len;i++)
+	{
+		tot[i+1]+=tot[i]/10;
+		tot[i]%=10;
+	}
+	if(tot[len]) cout<<tot[len];
+	for(int i=len-1;i>=0;i--)
+		cout<<tot[i];
+	cout<<endl;
+}
 
 ```
 
+Then fill in the simplest a+b in `std.cpp` ;
+
+And write `test.cpp` like this 
+
+```cpp
+#include"caryon.h"//Already include universal header files
+using namespace std ;
+using namespace ca ; //Namespace
+int main (){
+    dataname = "a+btest" ; //Write your own prefix here
+    makein ( 1 , 10 ){
+        csh ();/*Please look at the use document and two test examples by yourself here*/
+    }
+    makeout ( /*start*/ , /*number of times*/ );
+    debug ( /*start*/ , /*number of times*/ );
+    //program matching command, you don’t need to write
+    //The value of makeout must be less than or equal to makein
+    //Please compile std and put it in this folder, there must be an exe file
+    //thank you for your support
+    return 0 ;
+}
+```
+
+Note that due to the new version, no spaces can appear in the dataname field! ! !
+
+After the operation, you can find that not only the `data-a+btest` folder, but also `a+btest1.in/out-a+btest10.in/out` , but also A new folder `debug-a+btest` appears , the folder is `a+btest1.ans- a+btest10.ans`output by `myprogram.exe` , and then you can use `cmd` 's `comp` function to compare these two files!
+
+## Instructions for use of` test.cpp`
+
+The original information of `test.cpp` in the root directory is as follows:
+
+```cpp
+#include"caryon.h"//Already include universal header files
+using namespace std ;
+using namespace ca ; //Namespace
+int main (){
+    dataname = "a+btest" ; //Write your own prefix here
+    makein ( 1 , 10 ){
+        csh ();/*Please look at the use document and two test examples by yourself here*/
+    }
+    makeout ( /*start*/ , /*number of times*/ );
+    debug ( /*start*/ , /*number of times*/ );
+    //program matching command, you don’t need to write
+    //The value of makeout must be less than or equal to makein
+    //Please compile std and put it in this folder, there must be an exe file
+    //thank you for your support
+    return 0 ;
+}
+```
+
+Remember not to change the overall framework of the program, otherwise there will be problems with your execution results
+
+1. dataname is the prefix of the input and output files, if you leave it blank , there will be no prefix;
+
+2. The number of times in makein() is the number of in files generated;
+
+3. Csh in makein ; remember that it cannot be changed, there will be an unknown error when changing;
+
+4. The number of times in makeout must be smaller than that in makein , and the default is to form out files starting from the prefix 1.in , which can be continued
+
+### **a + b problem** data `test.cpp` preparing model
+
+```cpp
+#include"caryon.h"
+using namespace std;
+using namespace ca;	
 
 
-These things can be used to imagine yourself going to DIY to achieve the desired effect.
+int main(){
+	dataname="a+b test";	
+	makein(1,10){
+		csh();
+		inint(cyrand(-1000,1000));
+        instring(" ");
+        inint(cyrand(-1000,1000));
+	} 
+	makeout(1,10);
+	return 0;
+}
+```
 
+Explanation: The data of a+b are two random numbers (with spaces in between), so you need to use the `instring(" ")`; function to add spaces, if you need to change the line, you need to use `instring("\n");`, and then there is a problem of two random numbers.
 
+For high-precision data, it can be generated in the following cycle:
 
-Here is the math library:
+```cpp
+inint(cyrand(1,9));
+for(int i=0;i<高精度数据的长度-1;i++){
+    inint(cyrand(0,9));
+}
+```
 
-# 翻不动了
+The above program can only generate a high-precision data.
+
+The above content is enough to generate the data selected by noip, so I won't talk about it later, and wait for the user to explore it myself. If you have any questions, please comments, thank you!
+
+------
+
+谢谢您的兹磁！
