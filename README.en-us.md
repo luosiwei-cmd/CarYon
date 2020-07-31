@@ -377,4 +377,4 @@ The above content is enough to generate the data selected by noip, so I won't ta
 
 ------
 
-谢谢您的兹磁！
+Thank you!
