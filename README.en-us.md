@@ -1,4 +1,4 @@
-# CarYon An OI/ACM Contest Test Data Maker based on C++
+# CarYon An OI/ACM Contest Test Data Generator based on C++
 
 
 
