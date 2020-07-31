@@ -4,9 +4,17 @@ Project logo：
 
 ![CarYon](https://s1.ax1x.com/2020/04/17/JVvEWj.png)
 
-Project developer:![img](https://img.shields.io/badge/Avatar-luosw-red.svg)
+![img](https://img.shields.io/badge/Avatar-luosw-red.svg)
 
-The latest version of the project: ![img](https://img.shields.io/badge/Version-2.0.0-green.svg)
+![img](https://img.shields.io/github/package-json/v/luosiwei-cmd/caryon)
+
+![](https://img.shields.io/npm/dm/datamaker-caryon)
+
+![](https://img.shields.io/npm/dt/datamaker-caryon)
+
+![](https://img.shields.io/npm/l/datamaker-caryon)
+
+![](https://img.shields.io/npm/v/datamaker-caryon)
 
 # Front
 
