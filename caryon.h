@@ -520,10 +520,10 @@ namespace inout{
 			std::string _i;
 			_a<<i;
 			_a>>_i;
-			std::string fff="正在生成文件："+dataname+_i+".out...\n";
+			std::string fff="Generating："+dataname+_i+".out...\n";
 			printf(fff.c_str());
 		}
-		printf("out文件生成完毕，您可以在data-您的dataname文件夹中访问生成的所有文件。\n");
+		printf("out files are already generated, you can find them in the new folder in this directory.\n");
 	}
 	inline void closefile(){		
 		freopen("CON.exe","w",stdout);

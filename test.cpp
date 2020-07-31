@@ -1,14 +1,14 @@
 #include"caryon.h"
-//已经包含万能头文件
+//including <bits/stdc++.h>
 using namespace std;
-using namespace ca;	//命名空间
+using namespace ca;	//namespace
 int main(){
-	dataname="";	//这里写自己的前缀
-	makein(/*开始*/,/*结束*/){
+	dataname="";	//dataname
+	makein(/*start*/,/*end*/){
 		csh();
-		//这里请自行编写		
+		//Please finish these rows		
 	} 
-	makeout(/*开始*/,/*结束*/);
-	debug(/*开始*/,/*结束*/);
+	makeout(/*start*/,/*end*/);
+	debug(/*start*/,/*end*/);
 	return 0;
 } 

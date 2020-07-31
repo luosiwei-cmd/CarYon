@@ -1,4 +1,4 @@
 #include<bits/stdc++.h>
 int main(){
-	//这里自行填写std 
+	//Plase put your std program here.
 }
