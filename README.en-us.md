@@ -366,7 +366,7 @@ For high-precision data, it can be generated in the following cycle:
 
 ```cpp
 inint(cyrand(1,9));
-for(int i=0;i<高精度数据的长度-1;i++){
+for(int i=0;i<LEN-1;i++){
     inint(cyrand(0,9));
 }
 ```
