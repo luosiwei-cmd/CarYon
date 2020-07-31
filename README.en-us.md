@@ -4,6 +4,8 @@
 
 ![img](https://img.shields.io/badge/Avatar-luosw-red.svg) ![img](https://img.shields.io/github/package-json/v/luosiwei-cmd/caryon) ![](https://img.shields.io/npm/dm/datamaker-caryon) ![](https://img.shields.io/npm/dt/datamaker-caryon) ![](https://img.shields.io/npm/l/datamaker-caryon) ![](https://img.shields.io/npm/v/datamaker-caryon)
 
+[<img src="https://s.oier.in/cn.png" width="16" alt="CN" /> 大陆简体](README.md) **<img src="https://s.oier.in/us.png" width="16" alt="US" /> English** [<img src="https://s.oier.in/ru.png" width="16" alt="RU" /> Русский](README.ru.md)
+
 # Front
 
 Have you ever encountered the following problems when holding a self-contained OI match:
