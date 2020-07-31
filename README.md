@@ -1,12 +1,16 @@
-# 项目基本简介：
+# CarYon：一款基于C++的OI/ACM 比赛测试数据生成器
 
-项目logo：
+![img](https://img.shields.io/badge/Avatar-luosw-red.svg)
 
-![CarYon](https://s1.ax1x.com/2020/04/17/JVvEWj.png)
+![img](https://img.shields.io/github/package-json/v/luosiwei-cmd/caryon)
 
-项目开发者：![img](https://img.shields.io/badge/Avatar-luosw-red.svg)
+![](https://img.shields.io/npm/dm/datamaker-caryon)
 
-项目最新版本：![img](https://img.shields.io/badge/Version-2.0.0-green.svg)
+![](https://img.shields.io/npm/dt/datamaker-caryon)
+
+![](https://img.shields.io/npm/l/datamaker-caryon)
+
+![](https://img.shields.io/npm/v/datamaker-caryon)
 
 # 前言
 
