@@ -251,6 +251,33 @@ E.g:
 ```cpp
 doubleRandom();
 ```
+### Commonly used constants
+
+CarYon provides some commonly used constants.
+
+`PI`
+
+That is the value of pi. `3.1415926...`
+
+`E`
+
+The value of the natural base. `2.7182818...`
+
+`ALPHABET_SMALL`
+
+A string containing all lowercase letters. "`abcdefghijklmnopqrstuvwxyz`".
+
+`ALPHABET_CAPITAL`
+
+A string containing all capital letters. "`ABCDEFGHIJKLMNOPQRSTUVWXYZ`".
+
+`ALPHABET`
+
+A string containing all letters. "`abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`".
+
+`NUMBERS`
+
+A string containing all numbers. "`0123456789`".
 
 There is also a math library.
 
