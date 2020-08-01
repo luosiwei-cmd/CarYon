@@ -22,6 +22,14 @@ bool ___flag=false;
 void csh(){
 	cnt=0;
 }
+namespace cconst{
+	const long double PI=3.141592653589793238462643383279502884197169399;
+	const long double E=2.7182818284590452353602874713527;
+	const std::string ALPHABET_SMALL="abcdefghijklmnopqrstuvwxyz";
+	const std::string ALPHABET_CAPITAL="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	const std::string ALPHABET="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	const std::string NUMBERS="0123456789";
+}
 namespace crand{
 	bool isInit;
 	int MTindex;
@@ -122,6 +130,14 @@ namespace crand{
 			soha=soha+" "+cyrand_word(cyrand(1,10));
 		}
 		return soha;
+	}
+	template<typename T>
+	inline T choice(T* a,int lbound,int ubound){
+		return a[cyrand(lbound,ubound)];
+	}
+	inline double doubleRandom(){
+		srand(time(0));
+		return (double)(rand()/(double)RAND_MAX);
 	}
 }
 namespace cmath{
