@@ -226,6 +226,32 @@ cyrand_letter (); //random character
 
 These things can be used to DIY and achieve the desired effect.
 
+### Tool function
+
+For the needs of data generation, CarYon provides some simple tool functions.
+
+1. The choice function:
+
+The parameter is an array, a starting index, and a ending index.
+
+Eventually, a random value between the two subscripts of this array will be returned.
+
+E.g:
+
+```cpp
+choice(a,1,10);
+```
+
+2. The doubleRandom function:
+
+Returns a floating point number between 0 and 1.
+
+E.g:
+
+```cpp
+doubleRandom();
+```
+
 There is also a math library.
 
 ## Program match
