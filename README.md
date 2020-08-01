@@ -11,3 +11,16 @@ $ git clone https://github.com/luosiwei-cmd/CarYon.wiki.git
 ```
 
 感谢您的支持！
+
+-------
+
+Please refer to the wiki for the Chinese version. 
+
+If you are a foreign friend, please click the language switch hyperlink above, you can see the complete document.
+
+------
+
+Пожалуйста, обратитесь к вики для китайской версии. 
+
+Если вы иностранный друг, пожалуйста, нажмите на гиперссылку переключения языка выше, вы можете увидеть полный документ.
+
