@@ -573,5 +573,6 @@ namespace ca{
 	using namespace cmath;
 	using namespace inout;
 	using namespace cydebug;
+	using namespace cconst;
 }
 #endif
