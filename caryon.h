@@ -536,7 +536,7 @@ namespace inout{
 			std::string _i;
 			_a<<i;
 			_a>>_i;
-			std::string fff="Generating£º"+dataname+_i+".out...\n";
+			std::string fff="Generating:"+dataname+_i+".out...\n";
 			printf(fff.c_str());
 		}
 		printf("out files are already generated, you can find them in the new folder in this directory.\n");
