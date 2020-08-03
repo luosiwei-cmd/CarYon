@@ -6,7 +6,7 @@ int main(){
 		CNT++;
 		if(type=="makedata"){
 			cnt++;
-			if(cnt>1){
+			if(cnt!=1){
 				makedataERR();
 			}
 			fin>>start_d>>end_d;
@@ -26,6 +26,9 @@ int main(){
 		else if(type=="instring"){
 			fin>>type;
 			addInstring(type);
+		}
+		else if(type=="space"){
+			addInstring(" ");
 		}
 		else{
 			NothatERR();

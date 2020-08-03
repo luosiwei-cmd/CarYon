@@ -38,11 +38,13 @@ void addInstring(string a){
 void makedataERR(){
 	cerr<<"ERR: on row "<<CNT<<", more than 1 makedata operation is not be allowed. Plese check.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	system("pause");
 	exit(0);
 }
 void NothatERR(){
 	cerr<<"ERR: on row "<<CNT<<", unknown operation found.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	system("pause");
 	exit(0);
 }
 #endif //#ifndef ANALYSIS_HPP 
