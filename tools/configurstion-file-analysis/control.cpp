@@ -1,4 +1,4 @@
-#include"analysis.h"
+#include"analysis.hpp"
 using namespace std;
 int main(){
 	init();

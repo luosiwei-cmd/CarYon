@@ -1,5 +1,5 @@
-#ifndef ANALYSIS_H
-#define ANALYSIS_H
+#ifndef ANALYSIS_HPP 
+#define ANALYSIS_HPP 
 #include<bits/stdc++.h>
 using namespace std;
 ifstream fin("control.ini");
@@ -45,4 +45,4 @@ void NothatERR(){
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
 	exit(0);
 }
-#endif //#ifndef ANALYSIS_H
+#endif //#ifndef ANALYSIS_HPP 
