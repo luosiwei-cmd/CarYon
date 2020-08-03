@@ -191,7 +191,7 @@ namespace cmath{
 				return (ld)edge*length;
 			}
 	}; 
-	class kucan{
+	class kucan{//By Billy2007
 		public:
     		ll p,q,dlt[N][N];//p*q
    		 	kucan(){
@@ -376,13 +376,13 @@ namespace cmath{
 		public:
 			int a,b,peri,area;
 	}; 
-	class frac{
+	class frac{//By GoneTime&luosw
 		private:
 			void huaj(){
 				ll kk=cgcd(son,mom);
 				son/=kk;
 				mom/=kk;
-			}//»¯¼ò
+			}//Â»Â¯Â¼Ã²
 			bool fu(){
 				huaj();
 				if(son<0&&mom<0){
@@ -536,7 +536,7 @@ namespace inout{
 			std::string _i;
 			_a<<i;
 			_a>>_i;
-			std::string fff="Generating£º"+dataname+_i+".out...\n";
+			std::string fff="GeneratingÂ£Âº"+dataname+_i+".out...\n";
 			printf(fff.c_str());
 		}
 		printf("out files are already generated, you can find them in the new folder in this directory.\n");
