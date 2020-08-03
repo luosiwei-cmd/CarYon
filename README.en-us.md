@@ -226,6 +226,77 @@ cyrand_letter (); //random character
 
 These things can be used to DIY and achieve the desired effect.
 
+### Graph and tree Graph and tree
+
+CarYon supports the function of creating graphs.
+
+#### Create a graph
+
+You can create a graph with the following command:
+
+```cpp
+template<typename T> //No need to write this line
+graph<T> example;
+```
+
+This generates a graph with edge weight type T.
+
+#### Join the edge
+
+To add edges to the generated graph, you need:
+
+```cpp
+example.addedge(/*start*/,/*end*/,cyrand(/*min*/,/*max*/))
+```
+
+#### Make a random graph
+
+```cpp
+rand_graph(n,m,min,max,randfunc);
+```
+
+It can return a random graph with `n `points`m` edges and side weights between `min` and `max`.
+
+If you want to assign a value to the generated graph, directly:
+
+```cpp
+example=rand_graph(n,m,min,max);
+```
+
+#### Graph class member functions
+
+Here are some useful functions:
+
+```cpp
+example.is_connect();
+```
+
+This function returns a Boolean value, which represents whether the graph is connected.
+
+```cpp
+example.output();
+```
+
+Output this graph.
+
+```cpp
+example=rand_dag(n,m,min,max,randfunc);
+```
+
+Returns a directed acyclic graph.
+
+```cpp
+example=rand_tree(n,k,min,max,randfunc);
+```
+
+Return a k-ary tree with n points.
+
+```cpp
+example=connect_graph(n,m,min,max,randfunc);
+```
+
+Make a random connected graph.
+
 ### Tool function
 
 For the needs of data generation, CarYon provides some simple tool functions.
