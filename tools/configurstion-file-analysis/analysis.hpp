@@ -45,28 +45,28 @@ void addInstring(string a){
 void makedataERR(){
 	cerr<<"ERR: on row "<<CNT<<", more than 1 makedata operation is not be allowed. | The makedata operation may be not in the fitst row. Plese check.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
-	cout<<"Analysis failed. Please check the analysis.log for more information";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
 	system("pause");
 	exit(0);
 }
 void NothatERR(){
 	cerr<<"ERR: on row "<<CNT<<", unknown operation found.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
-	cout<<"Analysis failed. Please check the analysis.log for more information";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
 	system("pause");
 	exit(0);
 }
 void NoMakedataERR(){
 	cerr<<"ERR: there is not a makedata opertion in your compile file.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
-	cout<<"Analysis failed. Please check the analysis.log for more information";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
 	system("pause");
 	exit(0);
 }
 void NoiniERR(){
 	cerr<<"ERR: cannot find file: control.ini.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
-	cout<<"Analysis failed. Please check the analysis.log for more information";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
 	system("pause");
 	exit(0);  
 }
