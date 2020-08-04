@@ -5,8 +5,8 @@ int main(){
 	while(fin>>type){
 		CNT++;
 		if(type=="makedata"){
-			cnt++;
-			if(cnt!=1){
+			_CNT++;
+			if(CNT!=1){
 				makedataERR();
 			}
 			fin>>start_d>>end_d;
@@ -33,6 +33,9 @@ int main(){
 		else{
 			NothatERR();
 		}
+	}
+	if(_CNT==0){
+		NoMakedataERR();
 	}
 	end();
 }
