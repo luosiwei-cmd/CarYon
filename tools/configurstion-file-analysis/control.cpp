@@ -99,9 +99,25 @@ int main(){
 		else if(type=="sf"){
 			endFor();
 		}
+		else if(type=="continue"){
+			if(___flag){
+				addContinue();
+			}
+			else{
+				NotinForERR();
+			}
+		}
+		else if(type=="break"){
+			if(___flag){
+				addBreak();
+			}
+			else{
+				NotinForERR();
+			}
+		}
 		else{
 			NothatERR();
-		}
+		} 
 	}
 	if(_CNT==0){
 		NoMakedataERR();
