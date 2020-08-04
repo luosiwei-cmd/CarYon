@@ -30,7 +30,13 @@ int main(){
 		}
 		else if(type=="instring"){
 			fin>>type;
-			addInstring(type);
+			if(type!="cyrand") 
+				addInstring(type);
+			else{
+				int a;
+				fin>>a;
+				addInstring(a);
+			}
 		}
 		else if(type=="space"){
 			addInstring(" ");

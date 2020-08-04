@@ -42,6 +42,10 @@ void addInstring(string a){
 	fout<<"        instring(\""<<a<<"\");\n";
 	clog<<"LOG: Make a string or a space successfully.\n";
 }
+void addInstring(int a){
+	fout<<"        instring(cyrand_word("<<a<<"));\n";
+	clog<<"LOG: Make a random string successfully.\n";
+}
 void makedataERR(){
 	cerr<<"ERR: on row "<<CNT<<", more than 1 makedata operation is not be allowed. | The makedata operation may be not in the fitst row. Plese check.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
