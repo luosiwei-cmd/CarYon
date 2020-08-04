@@ -24,6 +24,15 @@ int main(){
 				fin>>start>>end;
 				addInint(start,end);
 			}
+			else if(type=="variable"){
+				fin>>type;
+				if(!alreadyhave(type)){
+					addvariInint(type);
+				}
+				else{
+					nothisVariERR();
+				}
+			} 
 			else{
 				addInint(type);
 			}
@@ -63,7 +72,18 @@ int main(){
 			else{
 				nothisVariERR();
 			}
-		} 
+		}
+		else if(type=="variable_cyrand"){
+			fin>>type;
+			int start,end;
+			fin>>start>>end;
+			if(alreadyhave(type)){
+				nothisVariERR();
+			}
+			else{
+				assignrandvari(start,end,type);
+			}
+		}
 		else{
 			NothatERR();
 		}
