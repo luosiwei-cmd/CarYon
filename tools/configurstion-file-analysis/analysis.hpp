@@ -9,6 +9,8 @@ ofstream fout("test.cpp");
 std::string type;
 int start_d,end_d;
 int CNT,_CNT;
+string _variable[10000];
+int _i=0;
 void init(){
 	fout<<"#include\"caryon.h\"\n";
 	fout<<"using namespace std;\n";
@@ -81,9 +83,17 @@ void variWrongERR(){
 	system("pause");
 	exit(0);
 }
+void twoVariERR(){
+	cerr<<"ERR: on row "<<CNT<<", the variable name has already been named.\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
+}
 void addInt(string type){
 	fout<<"        int "<<type<<";\n";
-	clog<<"Add int variable "<<type<<" succfully.\n"; 
+	clog<<"Add int variable "<<type<<" succfully.\n";
+	_variable[_i++]=type;
 }
 bool isvari(string type){
 	if(!((type[0]>='a' and type[0]<='z')or(type[0]>='A' and type[0]<='Z')or(type[0]=='-')or(type[0]=='$'))){
@@ -93,6 +103,12 @@ bool isvari(string type){
 		if(!((type[i]>='a' and type[i]<='z')or(type[i]>='A' and type[i]<='Z')or(type[i]=='-')or(type[i]=='$')or(type[i]>='0' and type[i]<='9'))){
 			return false;   
 		}
+	}
+	return true;
+}
+bool alreadyhave(string type){
+	for(int i=0;i<_i;i++){
+		if(_variable[i]==type)	return false;
 	}
 	return true;
 }

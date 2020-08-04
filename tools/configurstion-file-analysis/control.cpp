@@ -44,7 +44,10 @@ int main(){
 		else if(type=="int"){
 			fin>>type;
 			if(isvari(type)){
-				addInt(type);
+				if(!alreadyhave(type))
+					addInt(type);
+				else
+					twoVariERR();
 			}
 			else{
 				variWrongERR();
