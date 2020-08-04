@@ -6,7 +6,7 @@ ifstream fin("control.ini");
 ofstream fout("test.cpp");
 std::string type;
 int start_d,end_d;
-int cnt,CNT;
+int CNT,_CNT;
 void init(){
 	fout<<"#include\"caryon.h\"\n";
 	fout<<"using namespace std;\n";
@@ -36,13 +36,19 @@ void addInstring(string a){
 	fout<<"instring(\""<<a<<"\");\n";
 }
 void makedataERR(){
-	cerr<<"ERR: on row "<<CNT<<", more than 1 makedata operation is not be allowed. Plese check.\n";
+	cerr<<"ERR: on row "<<CNT<<", more than 1 makedata operation is not be allowed. | The makedata operation may be not in the fitst row. Plese check.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
 	system("pause");
 	exit(0);
 }
 void NothatERR(){
 	cerr<<"ERR: on row "<<CNT<<", unknown operation found.\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	system("pause");
+	exit(0);
+}
+void NoMakedataERR(){
+	cerr<<"ERR: there is not a makedata opertion in your compile file.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
 	system("pause");
 	exit(0);
