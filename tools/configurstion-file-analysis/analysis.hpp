@@ -107,11 +107,11 @@ void addIntAssign(string type,int a){
 	clog<<"LOG: Assign variable "<<type<<" to "<<a<<" successfully.\n";
 }
 bool isvari(string type){
-	if(!((type[0]>='a' and type[0]<='z')or(type[0]>='A' and type[0]<='Z')or(type[0]=='-')or(type[0]=='$'))){
+	if(!((type[0]>='a' and type[0]<='z')or(type[0]>='A' and type[0]<='Z')or(type[0]=='_')or(type[0]=='$'))){
 		return false;
 	}
 	for(int i=1;i<type.size();i++){
-		if(!((type[i]>='a' and type[i]<='z')or(type[i]>='A' and type[i]<='Z')or(type[i]=='-')or(type[i]=='$')or(type[i]>='0' and type[i]<='9'))){
+		if(!((type[i]>='a' and type[i]<='z')or(type[i]>='A' and type[i]<='Z')or(type[i]=='_')or(type[i]=='$')or(type[i]>='0' and type[i]<='9'))){
 			return false;   
 		}
 	}
@@ -122,5 +122,13 @@ bool alreadyhave(string type){
 		if(_variable[i]==type)	return false;
 	}
 	return true;
+}
+void addvariInint(string type){
+	fout<<"        inint("<<type<<");\n";
+	clog<<"LOG: Make a variable number successfully.\n";
+}
+void assignrandvari(int start,int end,string type){
+	fout<<"        "<<type<<"=cyrand("<<start<<","<<end<<");\n";
+	clog<<"LOG: Assign  variable "<<type<<" with a random number successfully.\n";
 }
 #endif //#ifndef ANALYSIS_HPP 
