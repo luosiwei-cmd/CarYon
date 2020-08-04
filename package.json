@@ -1,6 +1,6 @@
 {
   "name": "datamaker-caryon",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "数据生成",
   "main": "index.js",
   "scripts": {
