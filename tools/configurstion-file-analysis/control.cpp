@@ -44,13 +44,24 @@ int main(){
 		else if(type=="int"){
 			fin>>type;
 			if(isvari(type)){
-				if(!alreadyhave(type))
+				if(alreadyhave(type))
 					addInt(type);
 				else
 					twoVariERR();
 			}
 			else{
 				variWrongERR();
+			}
+		}
+		else if(type=="assignment"){
+			fin>>type;
+			int _a;
+			fin>>_a;
+			if(!alreadyhave(type)){
+				addIntAssign(type,_a);
+			}
+			else{
+				nothisVariERR();
 			}
 		} 
 		else{

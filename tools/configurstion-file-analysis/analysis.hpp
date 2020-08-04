@@ -9,7 +9,7 @@ ofstream fout("test.cpp");
 std::string type;
 int start_d,end_d;
 int CNT,_CNT;
-string _variable[10000];
+string _variable[10000]={""};
 int _i=0;
 void init(){
 	fout<<"#include\"caryon.h\"\n";
@@ -90,10 +90,21 @@ void twoVariERR(){
 	system("pause");
 	exit(0);
 }
+void nothisVariERR(){
+	cerr<<"ERR: on row "<<CNT<<", there is no variable name "<<type<<".\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
+}
 void addInt(string type){
 	fout<<"        int "<<type<<";\n";
-	clog<<"Add int variable "<<type<<" succfully.\n";
+	clog<<"LOG: Add int variable "<<type<<" successfully.\n";
 	_variable[_i++]=type;
+}
+void addIntAssign(string type,int a){
+	fout<<"        "<<type<<"="<<a<<";\n";
+	clog<<"LOG: Assign variable "<<type<<" to "<<a<<" successfully.\n";
 }
 bool isvari(string type){
 	if(!((type[0]>='a' and type[0]<='z')or(type[0]>='A' and type[0]<='Z')or(type[0]=='-')or(type[0]=='$'))){
