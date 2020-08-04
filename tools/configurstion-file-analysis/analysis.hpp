@@ -105,13 +105,6 @@ void NoForEndERR(){
 	system("pause");
 	exit(0);
 }
-void NotinForERR(){
-	cerr<<"ERR: The continue/break is not in a for.\n";
-	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
-	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
-	system("pause");
-	exit(0);
-}
 void addInt(string type){
 	fout<<"        int "<<type<<";\n";
 	clog<<"LOG: Add int variable "<<type<<" successfully.\n";
@@ -155,6 +148,13 @@ void endFor(){
 	___flag=false;
 	fout<<"        }\n";
 	clog<<"LOG: End a for successfully.\n";
+}
+void NotinForERR(){
+	cerr<<"ERR: The continue/break is not in a for.\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
 }
 void addContinue(){
 	fout<<"        continue;\n";
