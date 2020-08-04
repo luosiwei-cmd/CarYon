@@ -84,12 +84,30 @@ int main(){
 				assignrandvari(start,end,type);
 			}
 		}
+		else if(type=="fs"){
+			string __i;
+			fin>>__i;
+			int ___start,___end,___add;
+			fin>>___start>>___end>>___add;
+			if(!alreadyhave(__i))
+				addFor(__i,___start,___end,___add);
+			else{
+				type=__i;
+				nothisVariERR();
+			}	
+		}
+		else if(type=="sf"){
+			endFor();
+		}
 		else{
 			NothatERR();
 		}
 	}
 	if(_CNT==0){
 		NoMakedataERR();
+	}
+	if(___flag){
+		NoForEndERR();
 	}
 	end();
 }

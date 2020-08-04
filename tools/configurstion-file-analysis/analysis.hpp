@@ -11,6 +11,7 @@ int start_d,end_d;
 int CNT,_CNT;
 string _variable[10000]={""};
 int _i=0;
+bool ___flag;
 void init(){
 	fout<<"#include\"caryon.h\"\n";
 	fout<<"using namespace std;\n";
@@ -97,6 +98,13 @@ void nothisVariERR(){
 	system("pause");
 	exit(0);
 }
+void NoForEndERR(){
+	cerr<<"ERR: The for do not have an end.";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
+}
 void addInt(string type){
 	fout<<"        int "<<type<<";\n";
 	clog<<"LOG: Add int variable "<<type<<" successfully.\n";
@@ -130,5 +138,15 @@ void addvariInint(string type){
 void assignrandvari(int start,int end,string type){
 	fout<<"        "<<type<<"=cyrand("<<start<<","<<end<<");\n";
 	clog<<"LOG: Assign  variable "<<type<<" with a random number successfully.\n";
+}
+void addFor(string i,int start,int end,int add){
+	___flag=true;
+	fout<<"        for(int "<<i<<"="<<start<<";"<<i<<"<="<<end<<";"<<i<<"+="<<add<<"){\n";
+	clog<<"LOG: Add a for successfully.\n";
+}
+void endFor(){
+	___flag=false;
+	fout<<"        }\n";
+	clog<<"LOG: End a for successfully.\n";
 }
 #endif //#ifndef ANALYSIS_HPP 
