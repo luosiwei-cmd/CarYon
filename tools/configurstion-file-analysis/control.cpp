@@ -30,11 +30,40 @@ int main(){
 		}
 		else if(type=="instring"){
 			fin>>type;
-			addInstring(type);
+			if(type!="cyrand") 
+				addInstring(type);
+			else{
+				int a;
+				fin>>a;
+				addInstring(a);
+			}
 		}
 		else if(type=="space"){
 			addInstring(" ");
 		}
+		else if(type=="int"){
+			fin>>type;
+			if(isvari(type)){
+				if(alreadyhave(type))
+					addInt(type);
+				else
+					twoVariERR();
+			}
+			else{
+				variWrongERR();
+			}
+		}
+		else if(type=="assignment"){
+			fin>>type;
+			int _a;
+			fin>>_a;
+			if(!alreadyhave(type)){
+				addIntAssign(type,_a);
+			}
+			else{
+				nothisVariERR();
+			}
+		} 
 		else{
 			NothatERR();
 		}

@@ -9,6 +9,8 @@ ofstream fout("test.cpp");
 std::string type;
 int start_d,end_d;
 int CNT,_CNT;
+string _variable[10000]={""};
+int _i=0;
 void init(){
 	fout<<"#include\"caryon.h\"\n";
 	fout<<"using namespace std;\n";
@@ -42,6 +44,10 @@ void addInstring(string a){
 	fout<<"        instring(\""<<a<<"\");\n";
 	clog<<"LOG: Make a string or a space successfully.\n";
 }
+void addInstring(int a){
+	fout<<"        instring(cyrand_word("<<a<<"));\n";
+	clog<<"LOG: Make a random string successfully.\n";
+}
 void makedataERR(){
 	cerr<<"ERR: on row "<<CNT<<", more than 1 makedata operation is not be allowed. | The makedata operation may be not in the fitst row. Plese check.\n";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
@@ -69,5 +75,52 @@ void NoiniERR(){
 	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
 	system("pause");
 	exit(0);  
+}
+void variWrongERR(){
+	cerr<<"ERR: on row "<<CNT<<", the variable name is wrong.\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
+}
+void twoVariERR(){
+	cerr<<"ERR: on row "<<CNT<<", the variable name has already been named.\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
+}
+void nothisVariERR(){
+	cerr<<"ERR: on row "<<CNT<<", there is no variable name "<<type<<".\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
+}
+void addInt(string type){
+	fout<<"        int "<<type<<";\n";
+	clog<<"LOG: Add int variable "<<type<<" successfully.\n";
+	_variable[_i++]=type;
+}
+void addIntAssign(string type,int a){
+	fout<<"        "<<type<<"="<<a<<";\n";
+	clog<<"LOG: Assign variable "<<type<<" to "<<a<<" successfully.\n";
+}
+bool isvari(string type){
+	if(!((type[0]>='a' and type[0]<='z')or(type[0]>='A' and type[0]<='Z')or(type[0]=='-')or(type[0]=='$'))){
+		return false;
+	}
+	for(int i=1;i<type.size();i++){
+		if(!((type[i]>='a' and type[i]<='z')or(type[i]>='A' and type[i]<='Z')or(type[i]=='-')or(type[i]=='$')or(type[i]>='0' and type[i]<='9'))){
+			return false;   
+		}
+	}
+	return true;
+}
+bool alreadyhave(string type){
+	for(int i=0;i<_i;i++){
+		if(_variable[i]==type)	return false;
+	}
+	return true;
 }
 #endif //#ifndef ANALYSIS_HPP 
