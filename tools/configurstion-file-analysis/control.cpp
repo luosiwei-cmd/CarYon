@@ -1,7 +1,12 @@
 #include"analysis.hpp"
 using namespace std;
 int main(){
+	freopen("analysis.log","w",stderr);
 	init();
+	if(_findfirst("control.ini",&info)==-1){
+		NoiniERR();	
+	}
+	ifstream fin("control.ini");
 	while(fin>>type){
 		CNT++;
 		if(type=="makedata"){
