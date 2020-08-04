@@ -41,6 +41,15 @@ int main(){
 		else if(type=="space"){
 			addInstring(" ");
 		}
+		else if(type=="int"){
+			fin>>type;
+			if(isvari(type)){
+				addInt(type);
+			}
+			else{
+				variWrongERR();
+			}
+		} 
 		else{
 			NothatERR();
 		}

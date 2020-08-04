@@ -74,4 +74,26 @@ void NoiniERR(){
 	system("pause");
 	exit(0);  
 }
+void variWrongERR(){
+	cerr<<"ERR: on row "<<CNT<<", the variable name is wrong.\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
+}
+void addInt(string type){
+	fout<<"        int "<<type<<";\n";
+	clog<<"Add int variable "<<type<<" succfully.\n"; 
+}
+bool isvari(string type){
+	if(!((type[0]>='a' and type[0]<='z')or(type[0]>='A' and type[0]<='Z')or(type[0]=='-')or(type[0]=='$'))){
+		return false;
+	}
+	for(int i=1;i<type.size();i++){
+		if(!((type[i]>='a' and type[i]<='z')or(type[i]>='A' and type[i]<='Z')or(type[i]=='-')or(type[i]=='$')or(type[i]>='0' and type[i]<='9'))){
+			return false;   
+		}
+	}
+	return true;
+}
 #endif //#ifndef ANALYSIS_HPP 
