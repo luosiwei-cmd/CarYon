@@ -116,13 +116,13 @@ int main(){
 			}
 		}
 		else if(type=="sf"){
-			if(for_cnt)
+			if(endForc())
 				endFor();
 			else
 				NotinForERR();
 		}
 		else if(type=="continue"){
-			if(for_cnt){
+			if(endForc()){
 				addContinue();
 			}
 			else{
@@ -130,7 +130,7 @@ int main(){
 			}
 		}
 		else if(type=="break"){
-			if(for_cnt){
+			if(endForc()){
 				addBreak();
 			}
 			else{
@@ -142,7 +142,7 @@ int main(){
 			addIf(type); 
 		}
 		else if(type=="fi"){
-			if(if_cnt>0)
+			if(endIfc())
 				endIf();
 			else
 				NotinIfERR();

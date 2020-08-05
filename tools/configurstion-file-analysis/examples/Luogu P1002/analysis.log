@@ -2,14 +2,14 @@
 [CHECKER] Checking if m is a variable name.
 [CHECKER] m is a variable name. Accept.
 [CHECKER] Checking if variable m has already used.
-[ChECKER] Variable m has not been used yet.
+[CHECKER] Variable m has not been used yet.
 [CHECKER] Checking how many space(s) will be used.
 [CHECKER] For row 2, there will be 8 space(s) here.
 [LOG] Add int variable m successfully.
 [CHECKER] Checking if n is a variable name.
 [CHECKER] n is a variable name. Accept.
 [CHECKER] Checking if variable n has already used.
-[ChECKER] Variable n has not been used yet.
+[CHECKER] Variable n has not been used yet.
 [CHECKER] Checking how many space(s) will be used.
 [CHECKER] For row 3, there will be 8 space(s) here.
 [LOG] Add int variable n successfully.

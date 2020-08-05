@@ -147,7 +147,7 @@ bool alreadyhave(string type){
 			return false;
 		}
 	}
-	clog<<"[ChECKER] Variable "<<type<<" has not been used yet.\n";
+	clog<<"[CHECKER] Variable "<<type<<" has not been used yet.\n";
 	return true;
 }
 void addvariInint(string type){
@@ -211,6 +211,28 @@ void addForWithVariEnd(string a,int b,string c,int d){
 	fout<<maketab()<<"for("<<a<<"="<<b<<";"<<a<<"<="<<c<<";"<<a<<"+="<<d<<"){\n";
 	clog<<"[LOG] Add a for with a variable end successfully.\n";
 	for_cnt++;
+}
+bool endForc(){
+	clog<<"[CHECKER] Checking if sf/continue/break is in a fs.\n";
+	if(for_cnt){
+		clog<<"[CHECKER] Sf/continue/break is in a fs.\n";
+		return true;
+	}
+	else{
+		clog<<"[CHECKER] Sf/continue/break is not in a fs.\n";
+		return false;
+	}
+}
+bool endIfc(){
+	clog<<"[CHECKER] Checking if fi is in an if.\n";
+	if(if_cnt){
+		clog<<"[CHECKER] Fi is in an if.\n";
+		return true;
+	}
+	else{
+		clog<<"[CHECKER] Fi is not in an if.\n";
+		return false;
+	}
 }
 #endif //#ifndef ANALYSIS_HPP 
 /*ANALYSIS.HPP*/ 

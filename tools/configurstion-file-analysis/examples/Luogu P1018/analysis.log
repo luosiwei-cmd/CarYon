@@ -6,58 +6,61 @@
 [CHECKER] Checking how many space(s) will be used.
 [CHECKER] For row 2, there will be 8 space(s) here.
 [LOG] Add int variable n successfully.
-[CHECKER] Checking if variable n has already used.
-[CHECKER] Variable n has already used.
+[CHECKER] Checking if k is a variable name.
+[CHECKER] k is a variable name. Accept.
+[CHECKER] Checking if variable k has already used.
+[CHECKER] Variable k has not been used yet.
 [CHECKER] Checking how many space(s) will be used.
 [CHECKER] For row 3, there will be 8 space(s) here.
-[LOG] Assign variable n to 300 successfully.
-[CHECKER] Checking if variable n has already used.
-[CHECKER] Variable n has already used.
-[CHECKER] Checking how many space(s) will be used.
-[CHECKER] For row 4, there will be 8 space(s) here.
-[LOG] Make a variable number successfully.
+[LOG] Add int variable k successfully.
 [CHECKER] Checking if i is a variable name.
 [CHECKER] i is a variable name. Accept.
 [CHECKER] Checking if variable i has already used.
 [CHECKER] Variable i has not been used yet.
 [CHECKER] Checking how many space(s) will be used.
-[CHECKER] For row 5, there will be 8 space(s) here.
+[CHECKER] For row 4, there will be 8 space(s) here.
 [LOG] Add int variable i successfully.
-[CHECKER] Checking if j is a variable name.
-[CHECKER] j is a variable name. Accept.
-[CHECKER] Checking if variable j has already used.
-[CHECKER] Variable j has not been used yet.
+[CHECKER] Checking if variable n has already used.
+[CHECKER] Variable n has already used.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 5, there will be 8 space(s) here.
+[LOG] Assign  variable n with a random number successfully.
+[CHECKER] Checking if variable k has already used.
+[CHECKER] Variable k has already used.
 [CHECKER] Checking how many space(s) will be used.
 [CHECKER] For row 6, there will be 8 space(s) here.
-[LOG] Add int variable j successfully.
+[LOG] Assign  variable k with a random number successfully.
+[CHECKER] Checking if variable n has already used.
+[CHECKER] Variable n has already used.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 7, there will be 8 space(s) here.
+[LOG] Make a variable number successfully.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 8, there will be 8 space(s) here.
+[LOG] Make a string or a space successfully.
+[CHECKER] Checking if variable k has already used.
+[CHECKER] Variable k has already used.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 9, there will be 8 space(s) here.
+[LOG] Make a variable number successfully.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 10, there will be 8 space(s) here.
+[LOG] Make a string or a space successfully.
 [CHECKER] Checking if variable i has already used.
 [CHECKER] Variable i has already used.
 [CHECKER] Checking if variable n has already used.
 [CHECKER] Variable n has already used.
 [CHECKER] Checking how many space(s) will be used.
-[CHECKER] For row 7, there will be 8 space(s) here.
+[CHECKER] For row 11, there will be 8 space(s) here.
 [LOG] Add a for with a variable end successfully.
-[CHECKER] Checking if variable j has already used.
-[CHECKER] Variable j has already used.
-[CHECKER] Checking how many space(s) will be used.
-[CHECKER] For row 8, there will be 12 space(s) here.
-[LOG] Add a for successfully.
-[CHECKER] Checking how many space(s) will be used.
-[CHECKER] For row 9, there will be 16 space(s) here.
-[LOG] Make a random number successfully.
-[CHECKER] Checking how many space(s) will be used.
-[CHECKER] For row 10, there will be 16 space(s) here.
-[LOG] Make a string or a space successfully.
-[CHECKER] Checking if sf/continue/break is in a fs.
-[CHECKER] Sf/continue/break is in a fs.
-[CHECKER] Checking how many space(s) will be used.
-[CHECKER] For row 11, there will be 12 space(s) here.
-[LOG] End a for successfully.
 [CHECKER] Checking how many space(s) will be used.
 [CHECKER] For row 12, there will be 12 space(s) here.
-[LOG] Make a string or a space successfully.
+[LOG] Make a random number successfully.
 [CHECKER] Checking if sf/continue/break is in a fs.
 [CHECKER] Sf/continue/break is in a fs.
 [CHECKER] Checking how many space(s) will be used.
 [CHECKER] For row 13, there will be 8 space(s) here.
 [LOG] End a for successfully.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 14, there will be 8 space(s) here.
+[LOG] Make a string or a space successfully.
