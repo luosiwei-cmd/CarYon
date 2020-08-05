@@ -1,5 +1,13 @@
-LOG: Makein function was written successfully.
-LOG: Make a random number successfully.
-LOG: Make a string or a space successfully.
-LOG: Make a random number successfully.
-LOG: Make a string or a space successfully.
+[LOG] Makein function was written successfully.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 2, there will be 8 space(s) here.
+[LOG] Make a random number successfully.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 3, there will be 8 space(s) here.
+[LOG] Make a string or a space successfully.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 4, there will be 8 space(s) here.
+[LOG] Make a random number successfully.
+[CHECKER] Checking how many space(s) will be used.
+[CHECKER] For row 5, there will be 8 space(s) here.
+[LOG] Make a string or a space successfully.
