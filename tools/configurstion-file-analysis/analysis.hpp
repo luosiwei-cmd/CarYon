@@ -197,3 +197,4 @@ void endIf(){
 	clog<<"End an if successfully.\n";
 }
 #endif //#ifndef ANALYSIS_HPP 
+/*ANALYSIS.HPP*/ 
