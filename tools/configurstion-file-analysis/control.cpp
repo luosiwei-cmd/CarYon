@@ -97,13 +97,13 @@ int main(){
 			}	
 		}
 		else if(type=="sf"){
-			if(___flag)
+			if(for_cnt)
 				endFor();
 			else
 				NotinForERR();
 		}
 		else if(type=="continue"){
-			if(___flag){
+			if(for_cnt){
 				addContinue();
 			}
 			else{
@@ -111,7 +111,7 @@ int main(){
 			}
 		}
 		else if(type=="break"){
-			if(___flag){
+			if(for_cnt){
 				addBreak();
 			}
 			else{
@@ -135,7 +135,7 @@ int main(){
 	if(_CNT==0){
 		NoMakedataERR();
 	}
-	if(___flag){
+	if(for_cnt){
 		NoForEndERR();
 	}
 	if(if_cnt){

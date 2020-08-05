@@ -8,10 +8,18 @@ struct _finddata_t info;
 ofstream fout("test.cpp");
 std::string type;
 int start_d,end_d;
-int CNT,_CNT,if_cnt;
+int CNT,_CNT,if_cnt,for_cnt,tab_cnt;
 string _variable[10000]={""};
 int _i=0;
-bool ___flag;
+string maketab(){
+	string temp;
+	temp="        ";
+	tab_cnt=if_cnt+for_cnt;
+	for(int i=0;i<tab_cnt;i++){
+		temp+="    "; 
+	}
+	return temp;
+}
 void init(){
 	fout<<"#include\"caryon.h\"\n";
 	fout<<"using namespace std;\n";
@@ -34,19 +42,19 @@ void addMakein(int a,int b){
 	clog<<"LOG: Makein function was written successfully.\n";
 }
 void addInint(int a,int b){
-	fout<<"        inint(cyrand("<<a<<","<<b<<"));\n";
+	fout<<maketab()<<"inint(cyrand("<<a<<","<<b<<"));\n";
 	clog<<"LOG: Make a random number successfully.\n";
 }
 void addInint(string a){
-	fout<<"        inint("<<a<<");\n";
+	fout<<maketab()<<"inint("<<a<<");\n";
 	clog<<"LOG: Make a number successfully.\n";
 }
 void addInstring(string a){
-	fout<<"        instring(\""<<a<<"\");\n";
+	fout<<maketab()<<"instring(\""<<a<<"\");\n";
 	clog<<"LOG: Make a string or a space successfully.\n";
 }
 void addInstring(int a){
-	fout<<"        instring(cyrand_word("<<a<<"));\n";
+	fout<<maketab()<<"instring(cyrand_word("<<a<<"));\n";
 	clog<<"LOG: Make a random string successfully.\n";
 }
 void makedataERR(){
@@ -106,12 +114,12 @@ void NoForEndERR(){
 	exit(0);
 }
 void addInt(string type){
-	fout<<"        int "<<type<<";\n";
+	fout<<maketab()<<"int "<<type<<";\n";
 	clog<<"LOG: Add int variable "<<type<<" successfully.\n";
 	_variable[_i++]=type;
 }
 void addIntAssign(string type,int a){
-	fout<<"        "<<type<<"="<<a<<";\n";
+	fout<<maketab()<<type<<"="<<a<<";\n";
 	clog<<"LOG: Assign variable "<<type<<" to "<<a<<" successfully.\n";
 }
 bool isvari(string type){
@@ -132,21 +140,21 @@ bool alreadyhave(string type){
 	return true;
 }
 void addvariInint(string type){
-	fout<<"        inint("<<type<<");\n";
+	fout<<maketab()<<"inint("<<type<<");\n";
 	clog<<"LOG: Make a variable number successfully.\n";
 }
 void assignrandvari(int start,int end,string type){
-	fout<<"        "<<type<<"=cyrand("<<start<<","<<end<<");\n";
+	fout<<maketab()<<type<<"=cyrand("<<start<<","<<end<<");\n";
 	clog<<"LOG: Assign  variable "<<type<<" with a random number successfully.\n";
 }
 void addFor(string i,int start,int end,int add){
-	___flag=true;
-	fout<<"        for(int "<<i<<"="<<start<<";"<<i<<"<="<<end<<";"<<i<<"+="<<add<<"){\n";
+	fout<<maketab()<<"for("<<i<<"="<<start<<";"<<i<<"<="<<end<<";"<<i<<"+="<<add<<"){\n";
 	clog<<"LOG: Add a for successfully.\n";
+	for_cnt++;
 }
 void endFor(){
-	___flag=false;
-	fout<<"        }\n";
+	for_cnt--;
+	fout<<maketab()<<"}\n";
 	clog<<"LOG: End a for successfully.\n";
 }
 void NotinForERR(){
@@ -171,21 +179,21 @@ void NoIfEndERR(){
 	exit(0);
 }
 void addContinue(){
-	fout<<"        continue;\n";
+	fout<<maketab()<<"continue;\n";
 	clog<<"LOG: Add a \"continue\" successfully.\n";
 }
 void addBreak(){
-	fout<<"        break;\n";
+	fout<<maketab()<<"break;\n";
 	clog<<"LOG: Add a break successfully.\n";
 }
 void addIf(string type){
-	if_cnt++;
-	fout<<"        if("<<type<<"){\n";
+	fout<<maketab()<<"if("<<type<<"){\n";
 	clog<<"Add an if successfully.\n";
+	if_cnt++;
 }
 void endIf(){
 	if_cnt--;
-	fout<<"}\n";
+	fout<<maketab()<<"}\n";
 	clog<<"End an if successfully.\n";
 }
 #endif //#ifndef ANALYSIS_HPP 
