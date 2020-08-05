@@ -8,7 +8,7 @@ struct _finddata_t info;
 ofstream fout("test.cpp");
 std::string type;
 int start_d,end_d;
-int CNT,_CNT;
+int CNT,_CNT,if_cnt;
 string _variable[10000]={""};
 int _i=0;
 bool ___flag;
@@ -150,7 +150,21 @@ void endFor(){
 	clog<<"LOG: End a for successfully.\n";
 }
 void NotinForERR(){
-	cerr<<"ERR: The continue/break is not in a for.\n";
+	cerr<<"ERR: On row "<<CNT<<", the continue/break/sf is not in a for.\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
+}
+void NotinIfERR(){
+	cerr<<"ERR: On row "<<CNT<<", the fi is not in an if.\n";
+	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
+	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
+	system("pause");
+	exit(0);
+}
+void NoIfEndERR(){
+	cerr<<"ERR: A/Some if(s) do not have an end.";
 	fout<<"\n\n//Analysis failed, plese check stderr to know more.\n";
 	cout<<"Analysis failed. Please check the analysis.log for more information.\n";
 	system("pause");
@@ -163,5 +177,15 @@ void addContinue(){
 void addBreak(){
 	fout<<"        break;\n";
 	clog<<"LOG: Add a break successfully.\n";
+}
+void addIf(string type){
+	if_cnt++;
+	fout<<"        if("<<type<<"){\n";
+	clog<<"Add an if successfully.\n";
+}
+void endIf(){
+	if_cnt--;
+	fout<<"}\n";
+	clog<<"End an if successfully.\n";
 }
 #endif //#ifndef ANALYSIS_HPP 

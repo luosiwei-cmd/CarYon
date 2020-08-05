@@ -97,7 +97,10 @@ int main(){
 			}	
 		}
 		else if(type=="sf"){
-			endFor();
+			if(___flag)
+				endFor();
+			else
+				NotinForERR();
 		}
 		else if(type=="continue"){
 			if(___flag){
@@ -115,6 +118,16 @@ int main(){
 				NotinForERR();
 			}
 		}
+		else if(type=="if"){
+			fin>>type;
+			addIf(type); 
+		}
+		else if(type=="fi"){
+			if(if_cnt>0)
+				endIf();
+			else
+				NotinIfERR();
+		}
 		else{
 			NothatERR();
 		} 
@@ -124,6 +137,9 @@ int main(){
 	}
 	if(___flag){
 		NoForEndERR();
+	}
+	if(if_cnt){
+		NoIfEndERR();
 	}
 	end();
 }
