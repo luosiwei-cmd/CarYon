@@ -193,7 +193,7 @@ namespace cmath{
 	}; 
 	class kucan{//By Billy2007
 		public:
-    		ll p,q,dlt[N][N];//p*q
+    		ll p,q,dlt[N][N];
    		 	kucan(){
     		    p=1,q=1;
         		ms(dlt,0);
@@ -373,7 +373,7 @@ namespace cmath{
 				ll kk=cgcd(son,mom);
 				son/=kk;
 				mom/=kk;
-			}//»¯¼ò
+			}
 			bool fu(){
 				huaj();
 				if(son<0&&mom<0){
