@@ -96,6 +96,25 @@ int main(){
 				nothisVariERR();
 			}	
 		}
+		else if(type=="fs_end_withvari"){
+			string __i,__j;
+			fin>>__i;
+			int ___start,___add;
+			fin>>___start>>__j>>___add;
+			if(alreadyhave(__i)||alreadyhave(__j)){
+				if(alreadyhave(__i)){
+					type=__i;
+					nothisVariERR();
+				}
+				else{
+					type=__j;
+					nothisVariERR();
+				}
+			}
+			else{
+				addForWithVariEnd(__i,___start,__j,___add); 
+			}
+		}
 		else if(type=="sf"){
 			if(for_cnt)
 				endFor();

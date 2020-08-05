@@ -196,5 +196,10 @@ void endIf(){
 	fout<<maketab()<<"}\n";
 	clog<<"End an if successfully.\n";
 }
+void addForWithVariEnd(string a,int b,string c,int d){
+	fout<<maketab()<<"for("<<a<<"="<<b<<";"<<a<<"<="<<c<<";"<<a<<"+="<<d<<"){\n";
+	clog<<"LOG: Add a for with a variable end successfully.\n";
+	for_cnt++;
+}
 #endif //#ifndef ANALYSIS_HPP 
 /*ANALYSIS.HPP*/ 
