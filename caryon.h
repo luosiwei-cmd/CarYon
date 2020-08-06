@@ -18,11 +18,12 @@ int cprime[1000000];
 int ci;
 int cnt;
 const int N=151,inf=0x7f7f7f7f,moda=1000000007;
+int maxtime=1000;
+long double runtime;
 bool ___flag=false;
 void csh(){
 	cnt=0;
 }
-long double runtime[300];
 namespace cconst{
 	const long double PI=3.141592653589793238462643383279502884197169399;
 	const long double E=2.7182818284590452353602874713527;
@@ -540,6 +541,7 @@ namespace inout{
 }
 namespace cydebug{
 	void makeDebugFile(int a,int b){
+		freopen("tools\\Compare\\tmp_time.tmp","w",stdout);
 		std::string ___a="mkdir debug-"+dataname;
 		system(___a.c_str());
 		for(int i=a;i<=b;++i){
@@ -555,11 +557,15 @@ namespace cydebug{
 			freopen(debugname2.c_str(),"r",stdin);
 			long double clock1=clock(); 
 			system("myprogram.exe");
-			runtime[i]=clock()-clock1;
+			runtime=clock()-clock1;
+			freopen("tools\\Compare\\tmp_time.tmp","a",stdout);
+			std::cout<<runtime<<std::endl;
+			inout::closefile();
 		}
 	}
 	void compareFile(int a,int b){
 		freopen("Debug.log","w",stdout);
+		freopen("tools\\Compare\\tmp_time.tmp","r",stdin);
 		for(int i=a;i<=b;i++){
 			std::cout<<"Comparing "<<i<<".out and "<<i<<".ans...\n";
 			freopen("CON.exe","w",stdout);
@@ -570,8 +576,12 @@ namespace cydebug{
 			debug1>>Debug1;
 			std::string command="tools\\Compare\\NOIPStyle.exe debug-"+dataname+"//"+dataname+Debug1+".ans data-"+dataname+"//"+dataname+Debug1+".out";
 			int flag=system(command.c_str()); 
+			std::cin>>runtime;
 			freopen("Debug.log","a",stdout);
-			if(flag==1){
+			if(runtime>maxtime){
+				std::cout<<"TestCase "<<i<<", result: TLE.\n";
+			}
+			else if(flag==1){
 				std::cout<<"TestCase "<<i<<", result: AC.\n";
 			}
 			else if(flag==0){
