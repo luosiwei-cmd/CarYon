@@ -726,7 +726,18 @@ namespace cgraph{
 		}
 		return ret;
 	}
-} 
+}
+#if __cplusplus >= 201103
+namespace caryon_cpp11{
+	template<typename T> T choice_plus(std::initializer_list<T>a) {
+		std::vector<T>b;
+		for(auto i:a) {
+			b.push_back(i);
+		}
+		return b[crand::cyrand(1,b.size())-1];
+	}
+}
+#endif //#if __cplusplus>=201103
 namespace ca{
 	using namespace crand;
 	using namespace cmath;
@@ -734,5 +745,8 @@ namespace ca{
 	using namespace cydebug;
 	using namespace cconst;
 	using namespace cgraph;
+	#if __cplusplus >= 201103
+	using namespace caryon_cpp11;
+	#endif //#if __cplusplus>=201103
 }
 #endif
