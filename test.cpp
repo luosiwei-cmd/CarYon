@@ -4,7 +4,7 @@ using namespace std;
 using namespace ca;	//namespace
 int main(){
 	dataname="";	//dataname
-	maxtime=;
+	maxtime=1000;
 	makein(/*start*/,/*end*/){
 		csh();
 		//Please finish these rows		
