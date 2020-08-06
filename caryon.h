@@ -555,8 +555,33 @@ namespace cydebug{
 			system("myprogram.exe");
 		}
 	}
+	void compareFile(int a,int b){
+		freopen("Debug.log","w",stdout);
+		for(int i=a;i<=b;i++){
+			std::cout<<"Comparing "<<i<<".out and "<<i<<".ans...\n";
+			freopen("CON.exe","w",stdout);
+			freopen("CON.exe","r",stdin);
+			std::stringstream debug1;
+			std::string Debug1;
+			debug1<<i;
+			debug1>>Debug1;
+			std::string command="tools\\Compare\\NOIPStyle.exe debug-"+dataname+"//"+dataname+Debug1+".ans data-"+dataname+"//"+dataname+Debug1+".out";
+			int flag=system(command.c_str()); 
+			freopen("Debug.log","a",stdout);
+			if(flag==1){
+				std::cout<<"TestCase "<<i<<", result: AC.\n";
+			}
+			else if(flag==0){
+				std::cout<<"TestCase "<<i<<", result: WA.\n";
+			}
+			else{
+				std::cout<<"TestCase "<<i<<", result: UKE.\n";
+			}
+		}
+	}
 	void debug(int a,int b){
 		makeDebugFile(a,b);
+		compareFile(a,b);
 	}	
 }
 namespace cgraph{

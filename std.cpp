@@ -1,4 +1,4 @@
 #include<bits/stdc++.h>
 int main(){
-	//Plase put your standard program here.
+	//put your standard program here. 
 }
