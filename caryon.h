@@ -22,6 +22,7 @@ bool ___flag=false;
 void csh(){
 	cnt=0;
 }
+long double runtime[300];
 namespace cconst{
 	const long double PI=3.141592653589793238462643383279502884197169399;
 	const long double E=2.7182818284590452353602874713527;
@@ -552,7 +553,9 @@ namespace cydebug{
 			std::string debugname2="data-"+dataname+"./"+dataname+Debug1+".in";
 			freopen(debugname1.c_str(),"w",stdout);
 			freopen(debugname2.c_str(),"r",stdin);
+			long double clock1=clock(); 
 			system("myprogram.exe");
+			runtime[i]=clock()-clock1;
 		}
 	}
 	void compareFile(int a,int b){
