@@ -13,6 +13,9 @@
 #define ms(a,b) memset(a,b,sizeof(a))
 #define sz(a) sizeof(a)
 #define lcm(x,y) (x/cgcd(x,y)*y)
+#ifndef CarYon
+#define CarYon 3.4
+#endif 
 std::string dataname;
 int cprime[1000000];
 int ci;
