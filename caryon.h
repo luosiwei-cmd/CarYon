@@ -15,7 +15,7 @@
 #define lcm(x,y) (x/cgcd(x,y)*y)
 #ifndef CarYon
 #define CarYon 3.4
-#endif 
+#endif
 std::string dataname;
 int cprime[1000000];
 int ci;
@@ -150,7 +150,7 @@ namespace crand{
 			return true;
 		}
 		for(int i=0;i<end;i++){
-			else if(flag==-1){
+			if(flag==-1){
 				if(arr[i]==tmp){
 					return false;
 				}
