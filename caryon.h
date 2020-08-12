@@ -651,8 +651,8 @@ void compareFile(int a, int b) {
         debug1 << i;
         debug1 >> Debug1;
         std::string command = "tools\\Compare\\NOIPStyle.exe debug-" +
-                              dataname + "/" + dataname + Debug1 +
-                              ".ans  data-" + dataname + "/" + dataname +
+                              dataname + "\\" + dataname + Debug1 +
+                              ".ans  data-" + dataname + "\\" + dataname +
                               Debug1 + ".out";
         int flag = system(command.c_str());
         sp >> runtime;
