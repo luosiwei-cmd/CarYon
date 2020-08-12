@@ -413,7 +413,8 @@ inline int cmin(int a, int b) {
 inline int cmax(int a, int b) {
     return a > b ? a : b;
 }
-inline int cgcd(int a, int b) {
+template < typename T >
+T cgcd(T a, T b) {
     return a == 0 ? b : cgcd(b % a, a);
 }
 inline bool isprime(int a) {
@@ -619,7 +620,6 @@ inline void closefile() {
 }  // namespace inout
 namespace cydebug {
 void makeDebugFile(int a, int b) {
-    freopen("tools\\Compare\\tmp_time.tmp", "w", stdout);
     std::string ___a = "mkdir debug-" + dataname;
     system(___a.c_str());
     for (int i = a; i <= b; ++i) {

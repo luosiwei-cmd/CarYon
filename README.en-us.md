@@ -116,7 +116,7 @@ using namespace ca;
 int main(){
 	dataname="chen_zhe-ak-ioi";
 	makein(1,10){
-		csh();
+	csh();
 		xxx;
 	}
     makeout(1,10);

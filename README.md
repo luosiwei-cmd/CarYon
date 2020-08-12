@@ -6,7 +6,7 @@
 
 中文版使用文档请参见 wiki，您可以使用下面的命令来复制整个 wiki：
 
-```sh
+```shell
 $ git clone https://github.com/luosiwei-cmd/CarYon.wiki.git
 ```
 
