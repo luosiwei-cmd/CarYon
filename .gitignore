@@ -23,3 +23,5 @@
 *.lai
 *.la
 *.a
+
+*.clang-format
