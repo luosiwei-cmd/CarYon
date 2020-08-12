@@ -145,6 +145,37 @@ namespace crand{
 		srand(time(0));
 		return (double)(rand()/(double)RAND_MAX);
 	}
+	inline bool checktmp(int *arr,int tmp,int flag,int end){
+		if(flag==0){
+			return true;
+		}
+		for(int i=0;i<end;i++){
+			else if(flag==-1){
+				if(arr[i]==tmp){
+					return false;
+				}
+			}
+			else if(flag==1){
+				if(arr[i]>tmp){
+					return false;
+				}
+			}
+			else if(flag==2){
+				if(arr[i]<tmp){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	inline void randomArr(int* arr,int n,int lower,int upper,int flag){
+		for(int i=0;i<n;){
+			int tmp=cyrand(lower,upper);
+			if(checktmp(arr,tmp,flag,i-1)){
+				arr[i++]=tmp;
+			}
+		}
+	} 
 }
 namespace cmath{
 	class quadtri{
