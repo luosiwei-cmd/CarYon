@@ -6,12 +6,12 @@ using namespace std;
 int compareFile(FILE* file_compared, FILE* file_checked){
     bool diff=0;
     int N=65536;
-    char b1[N],b2[N];
+    char b1[65536],b2[65536];
     size_t s1,s2;
-    while(1){   
+    while(1){
 		if(fgets(b1,N,file_compared)==NULL||fgets(b2,N,file_checked)==NULL){
 			break;
-		}  
+		}
         s1=strlen(b1);
         s2=strlen(b2);
         if((s1!=s2&&s1+2!=s2&&s1-2!=s2&&s1+1!=s2&&s1-1!=s2)||memcmp(b1,b2,min(s1,s2)-1)){
@@ -23,7 +23,7 @@ int compareFile(FILE* file_compared, FILE* file_checked){
     free(b2);
     if(diff)
 		return 0;
-    else 
+    else
 		return 1;
 }
 int main(int argc,char* argv[]){
@@ -39,4 +39,4 @@ int main(int argc,char* argv[]){
 		return WA;
 	}
 	return 0;
-} 
+}

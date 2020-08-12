@@ -1,4 +1,4 @@
 #include<bits/stdc++.h>
 int main(){
-	//put your program here 
+	//put your program here
 }

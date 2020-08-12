@@ -7,9 +7,9 @@ int main(){
 	maxtime=1000;
 	makein(/*start*/,/*end*/){
 		csh();
-		//Please finish these rows		
-	} 
+		//Please finish these rows
+	}
 	makeout(/*start*/,/*end*/);
 	debug(/*start*/,/*end*/);
 	return 0;
-} 
+}
