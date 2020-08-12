@@ -1,7 +1,7 @@
 {
   "name": "datamaker-caryon",
-  "version": "3.4.2",
-  "description": "数据生成",
+  "version": "3.5.0",
+  "description": "makedata",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/luosiwei-cmd/caryon.git"
   },
   "keywords": [
-    "数据生成"
+    "makedata"
   ],
   "author": "luosw",
   "license": "ISC",
