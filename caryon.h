@@ -24,6 +24,8 @@ bool        ___flag = false;
 void        csh() {
     cnt = 0;
 }
+template < typename T >
+T cgcd(T a, T b);
 template < typename T1, typename T2 >
 void ms(T1* a, T2 b) {
     memset(a, b, sizeof(a));
@@ -638,8 +640,6 @@ void makeDebugFile(int a, int b) {
         system("myprogram.exe");
         runtime = clock() - clock1;
         sp << runtime << std::endl;
-        inout::closefile();
-        std::cout << "Making debug file " << debugname1 << "...\n";
     }
 }
 void compareFile(int a, int b) {
@@ -651,8 +651,8 @@ void compareFile(int a, int b) {
         debug1 << i;
         debug1 >> Debug1;
         std::string command = "tools\\Compare\\NOIPStyle.exe debug-" +
-                              dataname + "//" + dataname + Debug1 +
-                              ".ans data-" + dataname + "//" + dataname +
+                              dataname + "/" + dataname + Debug1 +
+                              ".ans  data-" + dataname + "/" + dataname +
                               Debug1 + ".out";
         int flag = system(command.c_str());
         sp >> runtime;
