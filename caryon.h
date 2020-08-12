@@ -10,9 +10,6 @@
 #define fs(i, x, y, z) for (ll i = x; i <= y; i += z)
 #define ft(i, x, y, z) for (ll i = x; i >= y; i += z)
 #define ull unsigned long long
-#define ms(a, b) memset(a, b, sizeof(a))
-#define sz(a) sizeof(a)
-#define lcm(x, y) (x / cgcd(x, y) * y)
 #ifndef CarYon
 #    define CarYon 3.4
 #endif
@@ -26,6 +23,18 @@ long double runtime;
 bool        ___flag = false;
 void        csh() {
     cnt = 0;
+}
+template < typename T1, typename T2 >
+void ms(T1* a, T2 b) {
+    memset(a, b, sizeof(a));
+}
+template < typename T >
+int sz(T* a) {
+    return sizeof(a);
+}
+template < typename T >
+T lcm(T x, T y) {
+    return x / cgcd(x, y) * y;
 }
 std::stringstream sp;
 namespace cconst {
@@ -157,7 +166,7 @@ inline double doubleRandom() {
     srand(time(0));
     return (double)(rand() / (double)RAND_MAX);
 }
-inline bool checktmp(int* arr, int tmp, int flag, int end) {
+inline bool __checktmp(int* arr, int tmp, int flag, int end) {
     if (flag == 0) {
         return true;
     }
@@ -177,13 +186,23 @@ inline bool checktmp(int* arr, int tmp, int flag, int end) {
                 return false;
             }
         }
+        else if (flag == 3) {
+            if (arr[i] >= tmp) {
+                return false;
+            }
+        }
+        else if (flag == 4) {
+            if (arr[i] <= tmp) {
+                return false;
+            }
+        }
     }
     return true;
 }
 inline void randomArr(int* arr, int n, int lower, int upper, int flag) {
     for (int i = 0; i < n;) {
         int tmp = cyrand(lower, upper);
-        if (checktmp(arr, tmp, flag, i - 1)) {
+        if (__checktmp(arr, tmp, flag, i - 1)) {
             arr[i++] = tmp;
         }
     }
@@ -619,6 +638,8 @@ void makeDebugFile(int a, int b) {
         system("myprogram.exe");
         runtime = clock() - clock1;
         sp << runtime << std::endl;
+        inout::closefile();
+        std::cout << "Making debug file " << debugname1 << "...\n";
     }
 }
 void compareFile(int a, int b) {
@@ -654,7 +675,9 @@ void compareFile(int a, int b) {
 }
 void debug(int a, int b) {
     makeDebugFile(a, b);
+    std::cout << "Debug files were maked successfully.\n";
     compareFile(a, b);
+    std::cout << "Debug successfully.\n";
 }
 }  // namespace cydebug
 namespace cgraph {

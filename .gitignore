@@ -24,4 +24,6 @@
 *.la
 *.a
 
+# VsCode
 *.clang-format
+.vscode
