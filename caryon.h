@@ -675,8 +675,10 @@ void compareFile(int a, int b) {
 }
 void debug(int a, int b) {
     makeDebugFile(a, b);
+    inout::closefile();
     std::cout << "Debug files were maked successfully.\n";
     compareFile(a, b);
+    inout::closefile();
     std::cout << "Debug successfully.\n";
 }
 }  // namespace cydebug
@@ -784,11 +786,11 @@ graph< T > rand_graph(int n, int m, T mn, T mx, T (*randfunc)(T, T)) {
     return ret;
 }
 
-struct crayon_node2 {
+struct caryon_node2 {
     int num, id1, id2;
 };
 
-bool crayon_cmp1(crayon_node2 a, crayon_node2 b) {
+bool crayon_cmp1(caryon_node2 a, caryon_node2 b) {
     return a.num < b.num;
 }
 
