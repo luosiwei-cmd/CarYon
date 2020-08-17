@@ -585,6 +585,29 @@ inline void instring(std::string a) {
     std::cout << a;
     bh;
 }
+template < typename T >
+inline void in(T a) {
+    std::string       c, ccci, tnmp;
+    std::stringstream ss, cci;
+    if (cnt == 0) {
+        if (!___flag) {
+            std::string a666 = "mkdir data-" + dataname;
+            system(a666.c_str());
+            ___flag = true;
+        }
+        cci << ci;
+        cci >> ccci;
+        std::string name = "data-" + dataname + "./" + dataname + ccci + ".in";
+        freopen(name.c_str(), "w", stdout);
+        freopen(name.c_str(), "r", stdin);
+    }
+    ss << a;
+    ss >> c;
+    std::cin >> tnmp;
+    c = tnmp + c;
+    std::cout << c;
+    bh;
+}
 inline void out(int a) {
     freopen("CON.exe", "w", stdout);
     freopen("CON.exe", "r", stdin);
