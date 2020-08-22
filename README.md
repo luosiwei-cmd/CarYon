@@ -1,26 +1,55 @@
-# CarYon：一款基于C++的OI/ACM 比赛测试数据生成器
+<h1 align="center">CarYon</h1>
+<p align="center">一款基于C++的OI/ACM 比赛测试数据生成器</p>
+<p align="center">An OI/ACM Contest Test Case Generator based on C++</p>
 
-![img](https://img.shields.io/badge/Avatar-luosw-red.svg) ![img](https://img.shields.io/github/package-json/v/luosiwei-cmd/caryon) ![img](https://img.shields.io/npm/dm/datamaker-caryon) ![img](https://img.shields.io/npm/dt/datamaker-caryon) ![](https://img.shields.io/npm/l/datamaker-caryon) ![img](https://img.shields.io/npm/v/datamaker-caryon)
+![img](https://img.shields.io/badge/Avatar-luosw-red.svg) ![img](https://img.shields.io/github/package-json/v/luosiwei-cmd/caryon) ![img](https://img.shields.io/npm/dm/datamaker-caryon) ![img](https://img.shields.io/npm/dt/datamaker-caryon) ![img](https://img.shields.io/npm/l/datamaker-caryon) ![img](https://img.shields.io/github/commit-activity/m/luosiwei-cmd/CarYon) ![img](https://img.shields.io/github/last-commit/luosiwei-cmd/CarYon)![img](https://img.shields.io/github/repo-size/luosiwei-cmd/CarYon)
 
-**<img src="https://s.oier.in/cn.png" width="16" alt="CN" /> 大陆简体** [<img src="https://s.oier.in/us.png" width="16" alt="US" /> English](README.en-us.md) [<img src="https://s.oier.in/ru.png" width="16" alt="RU" /> Русский](README.ru.md)
+**<img src="https://s.oier.in/cn.png" width="16" alt="CN" /> 大陆简体** | [<img src="https://s.oier.in/us.png" width="16" alt="US" /> English](README.en-us.md) | [<img src="https://s.oier.in/ru.png" width="16" alt="RU" /> Русский](README.ru.md)
 
-中文版使用文档请参见 wiki，您可以使用下面的命令来复制整个 wiki：
+<p align="center">中文版文档：<a href="https://github.com/luosiwei-cmd/CarYon/wiki">Wiki</a></p>
 
-```shell
-$ git clone https://github.com/luosiwei-cmd/CarYon.wiki.git
+## 快速开始
+
+### 1. 安装 CarYon
+
+访问 Wiki 了解如何下载 CarYon 后直接执行：
+
+```cpp
+#include"caryon.h"
 ```
 
-感谢您的支持！
+就可以啦。
 
--------
+### 2. 升级 CarYon
 
-Please refer to the wiki for the Chinese version. 
+直接用新的版本替换掉老版本，不会出现兼容问题。
 
-If you are a foreign friend, please click the language switch hyperlink above, you can see the complete document.
+请优先克隆 master 分支，其他分支无法保持稳定。
 
-------
+## 功能特性
 
-Пожалуйста, обратитесь к вики для китайской версии. 
+- [x] 随机数
+- [x] 制造 `in` 和 `out` 文件
+- [x] 随机浮点数，随机字符串，随机单词，随机字符，随机文章
+- [x] 按用户要求制造指定的随机序列
+- [x] C++11 定制功能
+- [x] 工具函数
+- [x] 预先定义常用常数
+- [x] 分数全支持
+- [x] 圆全支持
+- [x] 二次三项式生成支持
+- [x] 二次三项式可指定是否能进行在有理数域中的因式分解
+- [x] 质数支持
+- [x] 程序对拍
+- [x] 支持更换对拍器
+- [x] 对拍允许自定义 Special Judge
+- [x] 对拍可设置时间限制
+- [x] 数学库
+- [x] 随机图与随机树生成
+- [x] 图自由指定联通性
+- [x] 编写配置文件生成数据
+- [x] 编写配置文件生成数据支持变量
+- [x] 编写配置文件生成数据支持循环，分支
 
-Если вы иностранный друг, пожалуйста, нажмите на гиперссылку переключения языка выше, вы можете увидеть полный документ.
-
+## Star 趋势
+![Star](https://starchart.cc/luosiwei-cmd/caryon.svg)
