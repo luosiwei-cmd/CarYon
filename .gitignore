@@ -27,3 +27,8 @@
 # VsCode
 *.clang-format
 .vscode
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/settings.json
+LICENSE
+.vscode/settings.json
