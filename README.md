@@ -8,6 +8,8 @@
 
 <p align="center">中文版文档：<a href="https://github.com/luosiwei-cmd/CarYon/wiki">Wiki</a></p>
 
+<p align="center"><b>下面仅为文档摘要，详细中文文档请查看 <a href="https://github.com/luosiwei-cmd/CarYon/wiki">Wiki</a></b></p>。
+
 ## 快速开始
 
 ### 1. 安装 CarYon
