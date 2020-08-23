@@ -53,3 +53,7 @@
 
 ## Star 趋势
 ![Star](https://starchart.cc/luosiwei-cmd/caryon.svg)
+
+## 协议
+
+ISC 开源协议。
