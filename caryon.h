@@ -433,32 +433,31 @@ class kucan {  // By Billy2007
         }
     }
 };
-inline ld cpi();
 class circle {
   public:
     ld r, c, area;
     ld oprc(bool flag) {
         if (flag)
-            c = 2 * r * cpi();
-        return 2 * r * cpi();
+            c = 2 * r * cconst::PI;
+        return 2 * r * cconst::PI;
     }
     ld opra(bool flag) {
         if (flag)
-            area = cpi() * r * r;
-        return cpi() * r * r;
+            area = cconst::PI * r * r;
+        return cconst::PI * r * r;
     }
     circle operator+(const circle x) const {
         circle tmp;
         tmp.r    = tmp.r + x.r;
-        tmp.c    = 2 * tmp.r * cpi();
-        tmp.area = cpi() * tmp.r * tmp.r;
+        tmp.c    = 2 * tmp.r * cconst::PI;
+        tmp.area = cconst::PI * tmp.r * tmp.r;
         return tmp;
     }
     circle operator-(const circle x) const {
         circle tmp;
         tmp.r    = tmp.r - x.r;
-        tmp.c    = 2 * tmp.r * cpi();
-        tmp.area = cpi() * tmp.r * tmp.r;
+        tmp.c    = 2 * tmp.r * cconst::PI;
+        tmp.area = cconst::PI * tmp.r * tmp.r;
         return tmp;
     }
     bool operator>(const circle b) const {
@@ -484,9 +483,6 @@ class circle {
         return !(*this == b);
     }
 };
-inline ld cpi() {
-    return 3.141592653589793238462643383279502884197169399;
-}
 inline ld cdistance(ld a1, ld a2, ld b1, ld b2) {
     return sqrt((a1 - b1) * (a1 - b1) + (a2 - b2) * (a2 - b2));
 }
@@ -627,6 +623,53 @@ class frac {  // By GoneTime&luosw
     }
 };
 }  // namespace cmath
+namespace cgeo {
+class point {
+  public:
+    double x, y;
+    point() {
+        x = 0;
+        y = 0;
+    }
+    double pointDis(point a, point b) {
+        return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+    }
+};
+class line {
+  public:
+    double k, b;
+    line() {
+        k = 0;
+        b = 0;
+    }
+    line makeLine(point a, point b) {
+        line tmp;
+        tmp.k = (a.y - b.y) / (a.x - b.x);
+        tmp.b = a.y - ((a.y - b.y) / (a.x - b.x) * a.x);
+        return tmp;
+    }
+};
+class hypotenuse {
+  public:
+    double k;
+    hypotenuse() {
+        k = 1;
+    }
+    hypotenuse makeHypotenuse(point a) {
+        hypotenuse tmp;
+        tmp.k = a.x * a.y;
+    }
+};
+class parabola {
+  public:
+    double a, b, c;
+    parabola() {
+        a = 1;
+        b = 0;
+        c = 0;
+    }
+}
+}  // namespace cgeo
 namespace inout {
 inline void inint(int a) {
     std::string       c, ccci, tnmp;
@@ -993,5 +1036,6 @@ using namespace cgraph;
 #if __cplusplus >= 201103L
 using namespace caryon_cpp11;
 #endif  //#if __cplusplus>=201103
+using namespace cgeo;
 }  // namespace ca
 #endif
