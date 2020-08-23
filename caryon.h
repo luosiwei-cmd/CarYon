@@ -156,7 +156,11 @@ inline void generate() {
 }
 inline int cyrand() {
     if (!isInit)
+#if __cplusplus <= 201103L
         csrand((int)time(NULL));
+#else
+        csrand((int)time(nullptr));
+#endif
     if (MTindex == 0)
         generate();
     int y   = MT[MTindex];
