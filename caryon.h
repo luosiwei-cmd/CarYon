@@ -668,7 +668,7 @@ class parabola {
         b = 0;
         c = 0;
     }
-}
+};
 }  // namespace cgeo
 namespace inout {
 inline void inint(int a) {
