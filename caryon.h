@@ -308,40 +308,52 @@ inline void randomArr(int* arr, int n, int lower, int upper, int flag) {
 namespace cmath {
 class quadtri {
   public:
-    int     a, b, c;
-    char    s;
-    quadtri make(char abc) {
-        quadtri tmp;
-        tmp.s = abc;
-        tmp.a = crand::cyrand(-100, 100);
-        tmp.b = crand::cyrand(-100, 100);
-        tmp.c = crand::cyrand(-100, 100);
-        return tmp;
+    int  a, b, c;
+    char s;
+    int  Delta;
+    quadtri() {
+        a     = 1;
+        b     = 0;
+        c     = 0;
+        s     = 'x';
+        Delta = 0;
     }
-    int     aaa;
-    quadtri makecanfac(char abc) {
-        quadtri tmp;
+    void make(char abc) {
+        s = abc;
+        a = crand::cyrand(-100, 100);
+        while (a == 0) {
+            a = crand::cyrand(-100, 100);
+        }
+        b = crand::cyrand(-100, 100);
+        c = crand::cyrand(-100, 100);
+    }
+    void makeDelta() {
+        Delta = b * b - 4 * a * c;
+    }
+    void makecanfac(char abc) {
         do {
-            tmp.s = abc;
-            tmp.a = crand::cyrand(-100, 100);
-            tmp.b = crand::cyrand(-100, 100);
-            tmp.c = crand::cyrand(-100, 100);
-            aaa   = b * b - 4 * a * c;
-        } while (!(aaa == (int)sqrt(aaa) * (int)sqrt(aaa)));
+            s = abc;
+            a = crand::cyrand(-100, 100);
+            while (a == 0) {
+                a = crand::cyrand(-100, 100);
+            }
+            b     = crand::cyrand(-100, 100);
+            c     = crand::cyrand(-100, 100);
+            Delta = b * b - 4 * a * c;
+        } while (!(Delta == (int)sqrt(Delta) * (int)sqrt(Delta)));
+    }
+    quadtri operator+(const quadtri cc) const {
+        quadtri tmp;
+        tmp.a = a + cc.a;
+        tmp.b = b + cc.b;
+        tmp.c = c + cc.c;
         return tmp;
     }
-    quadtri operator+(const quadtri b) const {
+    quadtri operator-(const quadtri aaa) const {
         quadtri tmp;
-        tmp.a = tmp.a + b.a;
-        tmp.b = tmp.b + b.b;
-        tmp.c = tmp.c + b.c;
-        return tmp;
-    }
-    quadtri operator-(const quadtri b) const {
-        quadtri tmp;
-        tmp.a = tmp.a - b.a;
-        tmp.b = tmp.b - b.b;
-        tmp.c = tmp.c - b.c;
+        tmp.a = a - aaa.a;
+        tmp.b = b - aaa.b;
+        tmp.c = c - aaa.c;
         return tmp;
     }
 };
@@ -557,7 +569,11 @@ class frac {  // By GoneTime&luosw
 
   public:
     int son, mom;
-    ld  value() {
+    frac() {
+        son = 0;
+        mom = 1;
+    }
+    ld value() {
         return (ld)son / mom;
     }
     std::string take(bool flag) {
@@ -608,6 +624,31 @@ class frac {  // By GoneTime&luosw
         c.son = son * (c.mom / mom) - b.son * (c.mom / b.mom);
         c.huaj();
         return c;
+    }
+    frac operator+(const int a) const {
+        frac tmp;
+        frac abc;
+        abc.son = a;
+        abc.mom = 1;
+        tmp     = *this + abc;
+        return tmp;
+    }
+    frac operator-(const int a) const {
+        return *this + (-a);
+    }
+    frac operator*(const int a) const {
+        frac tmp, abc;
+        abc.son = a;
+        abc.mom = 1;
+        tmp     = tmp * abc;
+        return tmp;
+    }
+    frac operator/(const int a) const {
+        frac tmp, abc;
+        abc.son = a;
+        abc.mom = 1;
+        tmp     = tmp / abc;
+        return tmp;
     }
     bool operator>(const frac b) const {
         frac c = *this - b;
