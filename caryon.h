@@ -356,6 +356,16 @@ class quadtri {
         tmp.c = c - aaa.c;
         return tmp;
     }
+    quadtri operator+(const int aaa) const {
+        quadtri tmp;
+        tmp.a = a;
+        tmp.b = b;
+        tmp.c = tmp.c + aaa;
+        return tmp;
+    }
+    quadtri operator-(const int aaa) const {
+        return *this + (-a);
+    }
 };
 class stpolyon {
   public:
@@ -470,16 +480,16 @@ class circle {
     }
     circle operator+(const circle x) const {
         circle tmp;
-        tmp.r    = tmp.r + x.r;
-        tmp.c    = 2 * tmp.r * cconst::PI;
-        tmp.area = cconst::PI * tmp.r * tmp.r;
+        tmp.r    = r + x.r;
+        tmp.c    = 2 * r * cconst::PI;
+        tmp.area = cconst::PI * r * r;
         return tmp;
     }
     circle operator-(const circle x) const {
         circle tmp;
-        tmp.r    = tmp.r - x.r;
-        tmp.c    = 2 * tmp.r * cconst::PI;
-        tmp.area = cconst::PI * tmp.r * tmp.r;
+        tmp.r    = r - x.r;
+        tmp.c    = 2 * r * cconst::PI;
+        tmp.area = cconst::PI * r * r;
         return tmp;
     }
     bool operator>(const circle b) const {
@@ -545,6 +555,32 @@ inline int crprimenum(int beg, int end) {
 class rectangle {
   public:
     int a, b, peri, area;
+    rectangle() {
+        a    = 0;
+        b    = 0;
+        peri = 0;
+        area = 0;
+    }
+    void makePeri() {
+        peri = (a + b) * 2;
+    }
+    void makeArea() {
+        area = a * b;
+    }
+};
+class triangle {
+  public:
+    int a, b, c, h1, h2, h3, peri, area;
+    triangle() {
+        a = b = c = h1 = h2 = h3 = peri = area = 0;
+    }
+    void makePeri() {
+        peri = a + b + c;
+    }
+    void makeArea() {
+        int p = (a + b + c) / 2;
+        area  = sqrt(p * (p - a) * (p - b) * (p - c));
+    }
 };
 class frac {  // By GoneTime&luosw
   private:
