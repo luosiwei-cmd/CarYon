@@ -109,8 +109,15 @@ bool        ___flag = false;
 void        csh() {
     cnt = 0;
 }
-template < typename T >
-T cgcd(T a, T b);
+int cgcd(int a, int b) {
+    int t = 1;
+    while (t != 0) {
+        t = a % b;
+        a = b;
+        b = t;
+    }
+    return a;
+}
 template < typename T1, typename T2 >
 void ms(T1* a, T2 b) {
     memset(a, b, sizeof(a));
@@ -119,8 +126,7 @@ template < typename T >
 int sz(T* a) {
     return sizeof(a);
 }
-template < typename T >
-T lcm(T x, T y) {
+int lcm(int x, int y) {
     return x / cgcd(x, y) * y;
 }
 std::stringstream sp;
@@ -793,7 +799,7 @@ void makeDebugFile(int a, int b) {
         freopen(debugname2.c_str(), "r", stdin);
         long double clock1 = clock();
         system("myprogram.exe");
-        runtime = clock() - clock1;
+        runtime = (int)(clock() - clock1);
         sp << runtime << std::endl;
     }
 }
