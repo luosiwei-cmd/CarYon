@@ -22,8 +22,6 @@ int compareFile(FILE* file_compared, FILE* file_checked) {
             break;
         }
     }
-    free(b1);
-    free(b2);
     if (diff)
         return 0;
     else
