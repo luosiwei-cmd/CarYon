@@ -7,7 +7,7 @@ int cnt = 1;
 int compareFile(FILE* file_compared, FILE* file_checked) {
     bool   diff = 0;
     int    N    = 65536;
-    char   b1[N], b2[N];
+    char   b1[65536], b2[65536];
     size_t s1, s2;
     while (1) {
         cnt++;
@@ -37,8 +37,7 @@ int main(int argc, char* argv[]) {
     }
     FILE* fuser = fopen(argv[1], "r");
     FILE* fstd  = fopen(argv[2], "r");
-    system("mkdir IOI");
-    freopen("IOI./IOI.log", "w", stderr);
+    freopen("IOI./IOI.log", "a", stderr);
     if (compareFile(fuser, fstd) == 1) {
         cerr << "Accept.\n";
         return AC;
