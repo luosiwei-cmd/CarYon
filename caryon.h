@@ -333,27 +333,6 @@ inline void instring(std::string a) {
     std::cout << a;
     ++__cnt;
 }
-template <>
-inline void in< std::string >(std::string a) {
-    std::string ccci, tnmp;
-    if (__cnt == 0) {
-        if (!___flag) {
-            std::string a666 = "mkdir data-" + dataname;
-            system(a666.c_str());
-            ___flag = true;
-        }
-        std::stringstream cci;
-        cci << __ci;
-        cci >> ccci;
-        std::string name = "data-" + dataname + "./" + dataname + ccci + ".in";
-        freopen(name.c_str(), "w", stdout);
-        freopen(name.c_str(), "r", stdin);
-    }
-    std::cin >> tnmp;
-    a = tnmp + a;
-    std::cout << a;
-    ++__cnt;
-}
 template < typename T >
 inline void in(T a) {
     std::string       c, ccci, tnmp;
@@ -522,9 +501,9 @@ void compareFile(int a, int b) {
             std::cout << "TestCase " << i << ", result: UKE.\n";
         }
     }
-    inout::closefile();
+    freopen("Debug.log", "a", stdout);
     std::cout << "Compare is compeleted.\n";
-    std::cout << "The score is " << (long double)____cnt * 1.0 / (b - a) * 100
+    std::cout << "The score is " << (long double)____cnt * 1.0 / (b - a + 1) * 100
               << "." << std::endl;
 }
 void debug(int a, int b) {
