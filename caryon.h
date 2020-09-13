@@ -481,6 +481,9 @@ void makeDebugFile(int a, int b) {
 void compareFile(int a, int b) {
     freopen("Debug.log", "w", stdout);
     for (int i = a; i <= b; i++) {
+        inout::closefile();
+        std::cout << "Comparing " << i << ".out and " << i << ".ans...\n";
+        freopen("Debug.log", "a", stdout);
         std::cout << "Comparing " << i << ".out and " << i << ".ans...\n";
         std::stringstream debug1;
         std::string       Debug1;
@@ -530,6 +533,7 @@ const std::string ALPHABET_CAPITAL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const std::string ALPHABET =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const std::string NUMBERS = "0123456789";
+const int         INF     = 0x7f7f7f;
 }  // namespace cconst
 #if __cplusplus >= 201103L
 namespace caryon_cpp11 {
