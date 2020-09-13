@@ -86,28 +86,22 @@
 #    include <unordered_map>
 #    include <unordered_set>
 #endif
-#define db double
-#define ll long long
-#define ld long db
-#define makein(m, n) for (ci = m; ci <= n; ci++)
-#define bh ++cnt
-#define ns "-1"
-#define fs(i, x, y, z) for (ll i = x; i <= y; i += z)
-#define ft(i, x, y, z) for (ll i = x; i >= y; i += z)
-#define ull unsigned long long
+#define makein(m, n) for (__ci = m; __ci <= n; __ci++)
+#define fs(i, x, y, z) for (long long i = x; i <= y; i += z)
+#define ft(i, x, y, z) for (long long i = x; i >= y; i += z)
 #ifndef CarYon
-#    define CarYon 3.4
+#    define CarYon 3.7
 #endif
 std::string dataname;
 int         cprime[1000000];
-int         ci;
-int         cnt;
-const int   N = 151, inf = 0x7f7f7f7f, moda = 1000000007;
+int         __ci;
+int         __cnt;
+const int   __N = 151, __moda = 1000000007;
 int         maxtime = 1000;
 long double runtime;
 bool        ___flag = false;
 void        csh() {
-    cnt = 0;
+    __cnt = 0;
 }
 int cgcd(int a, int b) {
     int t = 1;
@@ -131,10 +125,10 @@ int lcm(int x, int y) {
 }
 std::stringstream sp;
 namespace crand {
-bool isInit;
-int  MTindex;
-ll   MT[624];
-void csrand(int seed) {
+bool      isInit;
+int       MTindex;
+long long MT[624];
+void      csrand(int seed) {
     MTindex = 0;
     isInit  = 1;
     MT[0]   = seed;
@@ -168,8 +162,8 @@ inline int cyrand() {
     MTindex = (MTindex + 1) % 624;
     return y;
 }
-inline ll cyrand_ll() {
-    return ((ll)(cyrand()) << 31) + cyrand();
+inline long long cyrand_ll() {
+    return ((long long)(cyrand()) << 31) + cyrand();
 }
 inline int cyrand(int a, int b) {
     if (a > b)
@@ -179,7 +173,7 @@ inline int cyrand(int a, int b) {
     else
         return cyrand() % (b - a + 1) + a;
 }
-inline ll cyrand_ll(ll a, ll b) {
+inline long long cyrand_ll(long long a, long long b) {
     if (a > b)
         a = b;
     if (a == b)
@@ -300,13 +294,13 @@ namespace inout {
 inline void inint(int a) {
     std::string       c, ccci, tnmp;
     std::stringstream ss, cci;
-    if (cnt == 0) {
+    if (__cnt == 0) {
         if (!___flag) {
             std::string a666 = "mkdir data-" + dataname;
             system(a666.c_str());
             ___flag = true;
         }
-        cci << ci;
+        cci << __ci;
         cci >> ccci;
         std::string name = "data-" + dataname + "./" + dataname + ccci + ".in";
         freopen(name.c_str(), "w", stdout);
@@ -317,18 +311,18 @@ inline void inint(int a) {
     std::cin >> tnmp;
     c = tnmp + c;
     std::cout << c;
-    bh;
+    ++__cnt;
 }
 inline void instring(std::string a) {
     std::string ccci, tnmp;
-    if (cnt == 0) {
+    if (__cnt == 0) {
         if (!___flag) {
             std::string a666 = "mkdir data-" + dataname;
             system(a666.c_str());
             ___flag = true;
         }
         std::stringstream cci;
-        cci << ci;
+        cci << __ci;
         cci >> ccci;
         std::string name = "data-" + dataname + "./" + dataname + ccci + ".in";
         freopen(name.c_str(), "w", stdout);
@@ -337,19 +331,40 @@ inline void instring(std::string a) {
     std::cin >> tnmp;
     a = tnmp + a;
     std::cout << a;
-    bh;
+    ++__cnt;
 }
-template < typename T >
-inline void in(T a) {
-    std::string       c, ccci, tnmp;
-    std::stringstream ss, cci;
-    if (cnt == 0) {
+template <>
+inline void in< std::string >(std::string a) {
+    std::string ccci, tnmp;
+    if (__cnt == 0) {
         if (!___flag) {
             std::string a666 = "mkdir data-" + dataname;
             system(a666.c_str());
             ___flag = true;
         }
-        cci << ci;
+        std::stringstream cci;
+        cci << __ci;
+        cci >> ccci;
+        std::string name = "data-" + dataname + "./" + dataname + ccci + ".in";
+        freopen(name.c_str(), "w", stdout);
+        freopen(name.c_str(), "r", stdin);
+    }
+    std::cin >> tnmp;
+    a = tnmp + a;
+    std::cout << a;
+    ++__cnt;
+}
+template < typename T >
+inline void in(T a) {
+    std::string       c, ccci, tnmp;
+    std::stringstream ss, cci;
+    if (__cnt == 0) {
+        if (!___flag) {
+            std::string a666 = "mkdir data-" + dataname;
+            system(a666.c_str());
+            ___flag = true;
+        }
+        cci << __ci;
         cci >> ccci;
         std::string name = "data-" + dataname + "./" + dataname + ccci + ".in";
         freopen(name.c_str(), "w", stdout);
@@ -360,7 +375,47 @@ inline void in(T a) {
     std::cin >> tnmp;
     c = tnmp + c;
     std::cout << c;
-    bh;
+    ++__cnt;
+}
+inline void inspace() {
+    std::string ccci, tnmp;
+    if (__cnt == 0) {
+        if (!___flag) {
+            std::string a666 = "mkdir data-" + dataname;
+            system(a666.c_str());
+            ___flag = true;
+        }
+        std::stringstream cci;
+        cci << __ci;
+        cci >> ccci;
+        std::string name = "data-" + dataname + "./" + dataname + ccci + ".in";
+        freopen(name.c_str(), "w", stdout);
+        freopen(name.c_str(), "r", stdin);
+    }
+    std::cin >> tnmp;
+    std::string a = tnmp + " ";
+    std::cout << a;
+    ++__cnt;
+}
+inline void inendl() {
+    std::string ccci, tnmp;
+    if (__cnt == 0) {
+        if (!___flag) {
+            std::string a666 = "mkdir data-" + dataname;
+            system(a666.c_str());
+            ___flag = true;
+        }
+        std::stringstream cci;
+        cci << __ci;
+        cci >> ccci;
+        std::string name = "data-" + dataname + "./" + dataname + ccci + ".in";
+        freopen(name.c_str(), "w", stdout);
+        freopen(name.c_str(), "r", stdin);
+    }
+    std::cin >> tnmp;
+    std::string a = tnmp + "\n";
+    std::cout << a;
+    ++__cnt;
 }
 inline void out(int a) {
     freopen("CON.exe", "w", stdout);
@@ -558,18 +613,18 @@ class quadtri {
 };
 class stpolyon {
   public:
-    ld length, perimeter;
-    ll edge;
-    ld oprc(bool flag) {
+    long double length, perimeter;
+    long long   edge;
+    long double oprc(bool flag) {
         if (flag) {
-            perimeter = (ld)edge * length;
+            perimeter = (long double)edge * length;
         }
-        return (ld)edge * length;
+        return (long double)edge * length;
     }
 };
 class kucan {  // By Billy2007
   public:
-    ll p, q, dlt[N][N];
+    long long p, q, dlt[__N][__N];
     kucan() {
         p = 1, q = 1;
         ms(dlt, 0);
@@ -621,19 +676,19 @@ class kucan {  // By Billy2007
             c.q = b.q;
             fs(i, 1, c.p, 1) {
                 fs(j, 1, c.q, 1) {
-                    ll jk = 0;
+                    long long jk = 0;
                     fs(k, 1, q, 1) {
                         jk += dlt[i][k] * b.dlt[k][j];
-                        jk %= moda;
+                        jk %= __moda;
                     }
                     c.dlt[i][j] = jk;
-                    c.dlt[i][j] %= moda;
+                    c.dlt[i][j] %= __moda;
                 }
             }
         }
         return c;
     }
-    kucan operator*(const ll b) const {
+    kucan operator*(const long long b) const {
         kucan c;
         fs(i, 1, p, 1) {
             fs(j, 1, q, 1) {
@@ -656,13 +711,13 @@ class kucan {  // By Billy2007
 };
 class circle {
   public:
-    ld r, c, area;
-    ld oprc(bool flag) {
+    long double r, c, area;
+    long double oprc(bool flag) {
         if (flag)
             c = 2 * r * cconst::PI;
         return 2 * r * cconst::PI;
     }
-    ld opra(bool flag) {
+    long double opra(bool flag) {
         if (flag)
             area = cconst::PI * r * r;
         return cconst::PI * r * r;
@@ -704,7 +759,8 @@ class circle {
         return !(*this == b);
     }
 };
-inline ld cdistance(ld a1, ld a2, ld b1, ld b2) {
+inline long double
+cdistance(long double a1, long double a2, long double b1, long double b2) {
     return sqrt((a1 - b1) * (a1 - b1) + (a2 - b2) * (a2 - b2));
 }
 template < typename T >
@@ -774,7 +830,7 @@ class triangle {
 class frac {  // By GoneTime&luosw
   private:
     void huaj() {
-        ll kk = cgcd(son, mom);
+        long long kk = cgcd(son, mom);
         son /= kk;
         mom /= kk;
     }
@@ -798,8 +854,8 @@ class frac {  // By GoneTime&luosw
         son = 0;
         mom = 1;
     }
-    ld value() {
-        return (ld)son / mom;
+    long double value() {
+        return (long double)son * 1.0 / mom;
     }
     std::string take(bool flag) {
         int c = cgcd(son, mom);
