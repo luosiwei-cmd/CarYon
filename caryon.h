@@ -457,7 +457,8 @@ using namespace crand;
 using namespace inout;
 }  // namespace ca
 namespace cydebug {
-void makeDebugFile(int a, int b) {
+std::stringstream __re;
+void              makeDebugFile(int a, int b) {
     std::string ___a = "mkdir debug-" + dataname;
     system(___a.c_str());
     for (int i = a; i <= b; ++i) {
@@ -473,12 +474,13 @@ void makeDebugFile(int a, int b) {
         freopen(debugname1.c_str(), "w", stdout);
         freopen(debugname2.c_str(), "r", stdin);
         long double clock1 = clock();
-        system("myprogram.exe");
+        __re << system("myprogram.exe");
         runtime = (int)(clock() - clock1);
         sp << runtime << std::endl;
     }
 }
 void compareFile(int a, int b) {
+    int ____cnt = 0;
     freopen("Debug.log", "w", stdout);
     for (int i = a; i <= b; i++) {
         inout::closefile();
@@ -495,22 +497,35 @@ void compareFile(int a, int b) {
                               Debug1 + ".out";
         int flag = system(command.c_str());
         sp >> runtime;
+        int __tmp;
+        __re >> __tmp;
         freopen("Debug.log", "a", stdout);
-        if (runtime > maxtime) {
+        if (__tmp != 0) {
+            std::cout << "TestCase " << i << ", result: RE.\n";
+        }
+        else if (runtime > maxtime) {
             std::cout << "TestCase " << i
                       << ", result: TLE. The program\'s runtime is " << runtime
                       << " ms.\n";
         }
         else if (flag == 1) {
             std::cout << "TestCase " << i << ", result: AC.\n";
+            ____cnt++;
         }
         else if (flag == 0) {
             std::cout << "TestCase " << i << ", result: WA.\n";
+        }
+        else if (flag == -1) {
+            std::cout << "TestCase " << i << ", result: Judgement failed.\n";
         }
         else {
             std::cout << "TestCase " << i << ", result: UKE.\n";
         }
     }
+    inout::closefile();
+    std::cout << "Compare is compeleted.\n";
+    std::cout << "The score is " << (long double)____cnt * 1.0 / (b - a) * 100
+              << "." << std::endl;
 }
 void debug(int a, int b) {
     makeDebugFile(a, b);
