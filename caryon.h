@@ -853,6 +853,10 @@ class frac {  // By GoneTime&luosw
         son = 0;
         mom = 1;
     }
+    frac(int a, int b) {
+        son = a;
+        mom = b;
+    }
     long double value() {
         return (long double)son * 1.0 / mom;
     }
