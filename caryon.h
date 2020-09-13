@@ -503,8 +503,9 @@ void compareFile(int a, int b) {
     }
     freopen("Debug.log", "a", stdout);
     std::cout << "Compare is compeleted.\n";
-    std::cout << "The score is " << (long double)____cnt * 1.0 / (b - a + 1) * 100
-              << "." << std::endl;
+    std::cout << "The score is "
+              << (long double)____cnt * 1.0 / (b - a + 1) * 100 << "."
+              << std::endl;
 }
 void debug(int a, int b) {
     makeDebugFile(a, b);
