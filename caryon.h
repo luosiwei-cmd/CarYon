@@ -18,6 +18,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
+#include <windows.h>
 
 #if __cplusplus >= 201103L
 #    include <ccomplex>
@@ -411,6 +412,11 @@ inline void out(int a) {
     system("std.exe");
 }
 inline void makeout(int b, int a) {
+    MessageBox(NULL,
+               "In files are already generated, you can find them in the "
+               "new folder "
+               "in this directory.",
+               "CarYon", MB_ICONINFORMATION);
     for (int i = b; i <= a; ++i) {
         out(i);
         freopen("CON.exe", "r", stdin);
@@ -419,29 +425,24 @@ inline void makeout(int b, int a) {
         std::string       _i;
         _a << i;
         _a >> _i;
-        std::string fff = "Generating:" + dataname + _i + ".out...\n";
-        printf(fff.c_str());
     }
-    printf(
-        "out files are already generated, you can find them in the new folder "
-        "in this directory.\n");
+    MessageBox(NULL,
+               "Out files are already generated, you can find them in the "
+               "new folder "
+               "in this directory.",
+               "CarYon", MB_ICONINFORMATION);
 }
 inline void closefile() {
     freopen("CON.exe", "w", stdout);
     freopen("CON.exe", "r", stdin);
 }
 }  // namespace inout
-namespace ca {
-using namespace crand;
-using namespace inout;
-}  // namespace ca
 namespace cydebug {
 std::stringstream __re;
 void              makeDebugFile(int a, int b) {
     std::string ___a = "mkdir debug-" + dataname;
     system(___a.c_str());
     for (int i = a; i <= b; ++i) {
-        inout::closefile();
         std::stringstream debug1;
         std::string       Debug1;
         debug1 << i;
@@ -453,17 +454,17 @@ void              makeDebugFile(int a, int b) {
         freopen(debugname1.c_str(), "w", stdout);
         freopen(debugname2.c_str(), "r", stdin);
         long double clock1 = clock();
-        __re << system("myprogram.exe");
+        __re << system("myprogram.exe") << std::endl;
         runtime = (int)(clock() - clock1);
         sp << runtime << std::endl;
     }
+    inout::closefile();
 }
 void compareFile(int a, int b) {
     int ____cnt = 0;
     freopen("Debug.log", "w", stdout);
     for (int i = a; i <= b; i++) {
         inout::closefile();
-        std::cout << "Comparing " << i << ".out and " << i << ".ans...\n";
         freopen("Debug.log", "a", stdout);
         std::cout << "Comparing " << i << ".out and " << i << ".ans...\n";
         std::stringstream debug1;
@@ -501,25 +502,25 @@ void compareFile(int a, int b) {
             std::cout << "TestCase " << i << ", result: UKE.\n";
         }
     }
-    freopen("Debug.log", "a", stdout);
-    std::cout << "Compare is compeleted.\n";
-    std::cout << "The score is "
-              << (long double)____cnt * 1.0 / (b - a + 1) * 100 << "."
-              << std::endl;
+    inout::closefile();
+    std::cout << "Compare is compeleted." << std::endl;
+    long double       score = (long double)____cnt * 1.0 / (b - a + 1) * 100;
+    std::stringstream tempp;
+    std::string       tmp;
+    tempp << score;
+    tempp >> tmp;
+    std::string command = "The score is " + tmp + "\n";
+    MessageBox(NULL, command.c_str(), "CarYon", MB_ICONINFORMATION);
 }
 void debug(int a, int b) {
     makeDebugFile(a, b);
-    inout::closefile();
-    std::cout << "Debug files were maked successfully.\n";
+    MessageBox(NULL, "Debug files were maked successfully.", "CarYon",
+               MB_ICONINFORMATION);
     compareFile(a, b);
-    inout::closefile();
-    std::cout << "Debug successfully.\n";
+    MessageBox(NULL, "Debug successfully.", "CarYon", MB_ICONINFORMATION);
+    system("pause");
 }
 }  // namespace cydebug
-namespace ca {
-using namespace cydebug;
-}
-using namespace ca;
 namespace cconst {
 const long double PI = 3.141592653589793238462643383279502884197169399;
 const long double E  = 2.7182818284590452353602874713527;
@@ -542,12 +543,6 @@ T choice_plus(std::initializer_list< T > a) {
 }
 }  // namespace caryon_cpp11
 #endif
-namespace ca {
-using namespace cconst;
-#if __cplusplus >= 201103L
-using namespace caryon_cpp11;
-#endif
-}  // namespace ca
 namespace cmath {
 class quadtri {
   public:
@@ -560,6 +555,13 @@ class quadtri {
         c     = 0;
         s     = 'x';
         Delta = 0;
+    }
+    quadtri(int x, int y, int z, char tmp) {
+        a     = x;
+        b     = y;
+        c     = z;
+        s     = tmp;
+        Delta = b * b - 4 * a * c;
     }
     void make(char abc) {
         s = abc;
@@ -966,8 +968,12 @@ class point {
         x = 0;
         y = 0;
     }
-    double pointDis(point a, point b) {
-        return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+    point(int a, int b) {
+        x = a;
+        y = b;
+    }
+    double pointDis(point b) {
+        return sqrt((x - b.x) * (x - b.x) + (y - b.y) * (y - b.y));
     }
 };
 class line {
@@ -1005,192 +1011,197 @@ class parabola {
     }
 };
 }  // namespace cgeo
-namespace ca {
-using namespace cgeo;
-using namespace cmath;
-}  // namespace ca
-namespace ca {
 namespace cgraph {
-    template < typename T >
-    struct edge {
-        int  v;
-        T    w;
-        bool operator<(const edge& rw) const  // priority_queue
-        {
-            return w > rw.w;
-        }
-    };
-    template < typename T >
-    struct U {
-        std::vector< edge< T > > u;
-    };
-    template < typename T >
-    struct graph {  // graph
-        int                   n, m;
-        std::vector< U< T > > g;
-        graph() {
-            ;
-        }
+template < typename T >
+struct edge {
+    int  v;
+    T    w;
+    bool operator<(const edge& rw) const  // priority_queue
+    {
+        return w > rw.w;
+    }
+};
+template < typename T >
+struct U {
+    std::vector< edge< T > > u;
+};
+template < typename T >
+struct graph {  // graph
+    int                   n, m;
+    std::vector< U< T > > g;
+    graph() {
+        ;
+    }
 
-        void update(int ntemp) {
-            U< T > updatemp;
-            updatemp.u.clear();
-            while (g.size() <= ntemp)
-                g.push_back(updatemp);
-        }
-        void addedge(int u, int v, T w) {
-            n = cmath::cmax(n, u);
-            n = cmath::cmax(n, v);
-            update(cmath::cmax(u, v));
-            m++;
-            edge< T > tmp;
-            tmp.v = v, tmp.w = w;
-            g[u].u.push_back(tmp);
-        }
-        bool is_connect() {
-            const int vstsize = n + 1;
-            int       vstn    = 0;
-            bool      vst[vstsize];
-            memset(vst, false, sizeof(vst));
-            std::queue< int > q;
-            int               begin = crand::cyrand(1, n);
-            vst[begin]              = true;
-            vstn                    = 1;
-            q.push(begin);
-            while (!q.empty()) {
-                int tmp = q.front();
-                q.pop();
-                for (int i = 0; i < g[tmp].u.size(); i++) {
-                    if (!vst[g[tmp].u[i].v]) {
-                        vst[g[tmp].u[i].v] = true;
-                        vstn++;
-                        q.push(g[tmp].u[i].v);
-                    }
+    void update(int ntemp) {
+        U< T > updatemp;
+        updatemp.u.clear();
+        while (g.size() <= ntemp)
+            g.push_back(updatemp);
+    }
+    void addedge(int u, int v, T w) {
+        n = cmath::cmax(n, u);
+        n = cmath::cmax(n, v);
+        update(cmath::cmax(u, v));
+        m++;
+        edge< T > tmp;
+        tmp.v = v, tmp.w = w;
+        g[u].u.push_back(tmp);
+    }
+    bool is_connect() {
+        const int vstsize = n + 1;
+        int       vstn    = 0;
+        bool      vst[vstsize];
+        memset(vst, false, sizeof(vst));
+        std::queue< int > q;
+        int               begin = crand::cyrand(1, n);
+        vst[begin]              = true;
+        vstn                    = 1;
+        q.push(begin);
+        while (!q.empty()) {
+            int tmp = q.front();
+            q.pop();
+            for (int i = 0; i < g[tmp].u.size(); i++) {
+                if (!vst[g[tmp].u[i].v]) {
+                    vst[g[tmp].u[i].v] = true;
+                    vstn++;
+                    q.push(g[tmp].u[i].v);
                 }
             }
-            return ((vstn == n) ? true : false);
         }
-        void output(graph< T > c) {
-            std::cout << c;
-        }
-    };
-    template < typename T >
-    std::ostream& operator<<(std::ostream& os, const graph< T >& c) {
-        os << c.n << ' ' << c.m << '\n';
-        for (int i = 1; i <= c.n; i++) {
-            for (int j = 0; j < c.g[i].u.size(); j++)
-                os << i << ' ' << c.g[i].u[j].v << ' ' << c.g[i].u[j].w << '\n';
-        }
-        return os;
+        return ((vstn == n) ? true : false);
     }
-    template < typename T >
-    graph< T > operator+(graph< T > a, graph< T > b) {
-        graph< T > ret;
-        ret   = a;
-        ret.m = a.m + b.m;
-        ret.update(ret.n);
-        for (int i = 1; i <= b.n; i++) {
-            for (int j = 0; j < b.g[i].u.size(); j++) {
-                ret.g[i].u.push_back(b.g[i].u[j]);
-            }
-        }
-        return ret;
+    void output(graph< T > c) {
+        std::cout << c;
     }
-
-    template < typename T >
-    graph< T > rand_graph(int n, int m, T mn, T mx, T (*randfunc)(T, T)) {
-        graph< T > ret;
-        ret.n = n;
-        ret.m = m;
-
-        ret.update(n);
-
-        for (int i = 1; i <= m; i++) {
-            edge< T > tmp;
-            tmp.v = crand::cyrand(1, m);
-            tmp.w = randfunc(mn, mx);
-            ret.g[crand::cyrand(1, n)].u.push_back(tmp);
-        }
-        return ret;
+};
+template < typename T >
+std::ostream& operator<<(std::ostream& os, const graph< T >& c) {
+    os << c.n << ' ' << c.m << '\n';
+    for (int i = 1; i <= c.n; i++) {
+        for (int j = 0; j < c.g[i].u.size(); j++)
+            os << i << ' ' << c.g[i].u[j].v << ' ' << c.g[i].u[j].w << '\n';
     }
-
-    struct caryon_node2 {
-        int num, id1, id2;
-    };
-
-    bool crayon_cmp1(caryon_node2 a, caryon_node2 b) {
-        return a.num < b.num;
-    }
-
-    template < typename T >
-    graph< T > rand_dag(int n, int m, T mn, T mx, T (*randfunc)(T, T)) {
-        graph< T > ret;
-        ret.update(n);
-        ret.n = n;
-        ret.m = m;
-        for (int i = 1; i <= m; i++) {
-            edge< T > tmp;
-            int       utmp = crand::cyrand(1, crand::cyrand(1, n - 1));
-            tmp.v          = crand::cyrand(utmp + 1, n);
-            tmp.w          = randfunc(mn, mx);
-            ret.g[utmp].u.push_back(tmp);
+    return os;
+}
+template < typename T >
+graph< T > operator+(graph< T > a, graph< T > b) {
+    graph< T > ret;
+    ret   = a;
+    ret.m = a.m + b.m;
+    ret.update(ret.n);
+    for (int i = 1; i <= b.n; i++) {
+        for (int j = 0; j < b.g[i].u.size(); j++) {
+            ret.g[i].u.push_back(b.g[i].u[j]);
         }
-        return ret;
     }
+    return ret;
+}
 
-    struct caryon_node1 {
-        int id;
-        int soncnt;
-    };
+template < typename T >
+graph< T > rand_graph(int n, int m, T mn, T mx, T (*randfunc)(T, T)) {
+    graph< T > ret;
+    ret.n = n;
+    ret.m = m;
 
-    template < typename T >
-    graph< T > rand_tree(int n, int k, T mn, T mx, T (*randfunc)(T, T)) {
-        graph< T > ret;
-        ret.n = n;
-        ret.m = n - 1;
-        ret.update(n);
-        std::vector< caryon_node1 > t;
-        std::vector< int >          hash;
-        for (int i = 1; i <= n; i++) {
-            hash.push_back(i);
-        }
-        random_shuffle(hash.begin(), hash.end());
-        caryon_node1 updatemp;
-        updatemp.id     = hash[0];
+    ret.update(n);
+
+    for (int i = 1; i <= m; i++) {
+        edge< T > tmp;
+        tmp.v = crand::cyrand(1, m);
+        tmp.w = randfunc(mn, mx);
+        ret.g[crand::cyrand(1, n)].u.push_back(tmp);
+    }
+    return ret;
+}
+
+struct caryon_node2 {
+    int num, id1, id2;
+};
+
+bool crayon_cmp1(caryon_node2 a, caryon_node2 b) {
+    return a.num < b.num;
+}
+
+template < typename T >
+graph< T > rand_dag(int n, int m, T mn, T mx, T (*randfunc)(T, T)) {
+    graph< T > ret;
+    ret.update(n);
+    ret.n = n;
+    ret.m = m;
+    for (int i = 1; i <= m; i++) {
+        edge< T > tmp;
+        int       utmp = crand::cyrand(1, crand::cyrand(1, n - 1));
+        tmp.v          = crand::cyrand(utmp + 1, n);
+        tmp.w          = randfunc(mn, mx);
+        ret.g[utmp].u.push_back(tmp);
+    }
+    return ret;
+}
+
+struct caryon_node1 {
+    int id;
+    int soncnt;
+};
+
+template < typename T >
+graph< T > rand_tree(int n, int k, T mn, T mx, T (*randfunc)(T, T)) {
+    graph< T > ret;
+    ret.n = n;
+    ret.m = n - 1;
+    ret.update(n);
+    std::vector< caryon_node1 > t;
+    std::vector< int >          hash;
+    for (int i = 1; i <= n; i++) {
+        hash.push_back(i);
+    }
+    random_shuffle(hash.begin(), hash.end());
+    caryon_node1 updatemp;
+    updatemp.id     = hash[0];
+    updatemp.soncnt = 0;
+    t.push_back(updatemp);
+    for (int j = 2; j <= n; j++) {
+        int i = hash[j - 1];
+        std::swap(t[crand::cyrand(0, t.size() - 1)], t[t.size() - 1]);
+        t[t.size() - 1].soncnt++;
+        if (t[t.size() - 1].soncnt == k)
+            t.pop_back();
+        edge< T > tmp;
+        tmp.v = t[t.size() - 1].id;
+        tmp.w = randfunc(mn, mx);
+        ret.g[i].u.push_back(tmp);
+        updatemp.id     = i;
         updatemp.soncnt = 0;
         t.push_back(updatemp);
-        for (int j = 2; j <= n; j++) {
-            int i = hash[j - 1];
-            std::swap(t[crand::cyrand(0, t.size() - 1)], t[t.size() - 1]);
-            t[t.size() - 1].soncnt++;
-            if (t[t.size() - 1].soncnt == k)
-                t.pop_back();
-            edge< T > tmp;
-            tmp.v = t[t.size() - 1].id;
-            tmp.w = randfunc(mn, mx);
-            ret.g[i].u.push_back(tmp);
-            updatemp.id     = i;
-            updatemp.soncnt = 0;
-            t.push_back(updatemp);
-        }
-        return ret;
     }
+    return ret;
+}
 
-    template < typename T >
-    graph< T > connect_graph(int n, int m, T mn, T mx, T (*randfunc)(T, T)) {
-        int        k = crand::cyrand(1, n);
-        graph< T > ret;
-        ret   = rand_tree(n, k, mn, mx, randfunc);
-        ret.m = m;
-        for (int i = n; i <= m; i++) {
-            edge< T > tmp;
-            tmp.v = crand::cyrand(1, n);
-            tmp.w = randfunc(mn, mx);
-            ret.g[crand::cyrand(1, n)].u.push_back(tmp);
-        }
-        return ret;
+template < typename T >
+graph< T > connect_graph(int n, int m, T mn, T mx, T (*randfunc)(T, T)) {
+    int        k = crand::cyrand(1, n);
+    graph< T > ret;
+    ret   = rand_tree(n, k, mn, mx, randfunc);
+    ret.m = m;
+    for (int i = n; i <= m; i++) {
+        edge< T > tmp;
+        tmp.v = crand::cyrand(1, n);
+        tmp.w = randfunc(mn, mx);
+        ret.g[crand::cyrand(1, n)].u.push_back(tmp);
     }
+    return ret;
+}
 }  // namespace cgraph
+namespace ca {
+using namespace cydebug;
+using namespace cgeo;
+using namespace cmath;
 using namespace cgraph;
+using namespace crand;
+using namespace inout;
+using namespace cconst;
+#if __cplusplus >= 201103L
+using namespace caryon_cpp11;
+#endif
 }  // namespace ca
 #endif
