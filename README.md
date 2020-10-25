@@ -1,14 +1,21 @@
 <h1 align="center">CarYon</h1>
-<p align="center">一款基于C++的OI/ACM 比赛测试数据生成器</p>
-<p align="center">An OI/ACM Contest Test Case Generator based on C++</p>
+<p align="center">一款基于C++的OI/ACM 比赛出题解题辅助工具</p>
 
-![img](https://img.shields.io/badge/Avatar-luosw-red.svg) ![img](https://img.shields.io/github/package-json/v/luosiwei-cmd/caryon) ![img](https://img.shields.io/npm/dm/datamaker-caryon) ![img](https://img.shields.io/npm/dt/datamaker-caryon) ![img](https://img.shields.io/npm/l/datamaker-caryon)  ![img](https://img.shields.io/github/commit-activity/m/luosiwei-cmd/CarYon) 
-
-**<img src="https://s.oier.in/cn.png" width="16" alt="CN" /> 大陆简体** | [<img src="https://s.oier.in/us.png" width="16" alt="US" /> English](README.en-us.md) | [<img src="https://s.oier.in/ru.png" width="16" alt="RU" /> Русский](README.ru.md)
+![img](https://img.shields.io/badge/Avatar-luosw-red.svg) ![img](https://img.shields.io/github/package-json/v/luosiwei-cmd/caryon) ![img](https://img.shields.io/npm/dm/datamaker-caryon) ![img](https://img.shields.io/npm/dt/datamaker-caryon) ![img](https://img.shields.io/npm/l/datamaker-caryon)  ![img](https://img.shields.io/github/commit-activity/m/luosiwei-cmd/CarYon)
 
 <p align="center">中文版文档：<a href="https://github.com/luosiwei-cmd/CarYon/wiki">Wiki</a></p>
 
 <p align="center"><b>下面仅为文档摘要，详细中文文档请查看 <a href="https://github.com/luosiwei-cmd/CarYon/wiki">Wiki</a>。</b></p>
+
+## CarYon 介绍
+
+CarYon 是一款基于C++的OI/ACM 比赛出题解题辅助工具。
+
+CarYon 可以被用来生成测试用例，并且迅速地通过标准程序生成输出文件；也可以被用来在赛场上进行迅速生成样例对拍程序。
+
+CarYon 也可以作为一个现场生成样例的线下简易评测系统。内置三种比较器。支持 `AC,WA,TLE,UKE,RE` 等多种情况的判断。
+
+您要是认为 CarYon 中的重中之重（详见 Wiki：`test.cpp`）的编写过于复杂，在生成样例要求简单的情况下，可以使用 CarYon 的配置文件生成功能。
 
 ## 快速开始
 
@@ -24,34 +31,20 @@
 
 ### 2. 升级 CarYon
 
-直接用新的版本替换掉老版本，不会出现兼容问题。
+直接用新的版本替换掉老版本，自行克服兼容问题。
 
 请优先克隆 master 分支，其他分支无法保持稳定。
 
 ## 功能特性
 
-- [x] 随机数
-- [x] 制造 `in` 和 `out` 文件
-- [x] 随机浮点数，随机字符串，随机单词，随机字符，随机文章
-- [x] 按用户要求制造指定的随机序列
-- [x] C++11 定制功能
-- [x] 工具函数
-- [x] 预先定义常用常数
-- [x] 分数全支持
-- [x] 圆全支持
-- [x] 二次三项式生成支持
-- [x] 二次三项式可指定是否能进行在有理数域中的因式分解
-- [x] 质数支持
-- [x] 程序对拍
-- [x] 支持更换对拍器
-- [x] 对拍允许自定义 Special Judge
-- [x] 对拍可设置时间限制
+CarYon 可以被分为下面几个板块：
+
+- [x] 测试用例生成
+- [x] 评测程序（对拍）
 - [x] 数学库
-- [x] 随机图与随机树生成
-- [x] 图自由指定联通性
-- [x] 编写配置文件生成数据
-- [x] 编写配置文件生成数据支持变量
-- [x] 编写配置文件生成数据支持循环，分支
+- [x] 解析几何库
+- [x] 配置文件生成
+- [ ] （未完成）线下图形化评测系统
 
 ## Star 趋势
 ![Star](https://starchart.cc/luosiwei-cmd/caryon.svg)
