@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
     }
     FILE* fuser = fopen(argv[1], "r");
     FILE* fstd  = fopen(argv[2], "r");
-    freopen("IOI./IOI.log", "a", stderr);
+    freopen("IOI.log", "a", stderr);
     if (compareFile(fuser, fstd) == 1) {
         cerr << "Accept.\n";
         return AC;

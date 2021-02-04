@@ -44,7 +44,7 @@ CarYon 可以被分为下面几个板块：
 - [x] 数学库
 - [x] 解析几何库
 - [x] 配置文件生成
-- [ ] （未完成）线下图形化评测系统
+- [ ] （未完成）线下本地评测系统
 
 ## Star 趋势
 ![Star](https://starchart.cc/luosiwei-cmd/caryon.svg)
