@@ -319,8 +319,9 @@ struct graph {  // graph
         while (g.size() <= ntemp)
             g.push_back(updatemp);
     }
-    int ccmax(int a,int b){
-        if(a>b) return a;
+    int ccmax(int a, int b) {
+        if (a > b)
+            return a;
         else
             return b;
     }
@@ -466,15 +467,9 @@ template < typename T >
 graph< T > connect_graph(int n, int m, T mn, T mx, T (*randfunc)(T, T)) {
     int        k = crand::cyrand(1, n);
     graph< T > ret;
-    ret   = rand_tree(n, k, mn, mx, randfunc);
-    ret.m = m;
-    for (int i = n; i <= m; i++) {
-        edge< T > tmp;
-        tmp.v = crand::cyrand(1, n);
-        tmp.w = randfunc(mn, mx);
-        ret.g[crand::cyrand(1, n)].u.push_back(tmp);
-    }
-    return ret;
+    do {
+        ret = rand_graph(n, m, mn, mx, cyrand);
+    } while (!ret.isconnect());
 }
 }  // namespace cgraph
 namespace inout {
