@@ -251,7 +251,7 @@ void RandomP(int* arr,int size){
     }
     int t=cyrand(0,size/2);
     for(int i=0;i<t;i++){
-        swap(arr[cyrand(0,size-1)],arr[cyrand(0,size-1)]);
+        std::swap(arr[cyrand(0,size-1)],arr[cyrand(0,size-1)]);
     }
 }
 inline bool __checktmp(int* arr, int tmp, int flag, int end) {
