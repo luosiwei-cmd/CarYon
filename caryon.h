@@ -225,9 +225,7 @@ inline std::string cyrand_word(int a) {
     std::string chen_zhe;
     for (int kkksc03 = 0; kkksc03 < a; kkksc03++) {
             char t=cyrand_engs();
-            char a[1];
-            a[0]=t;
-            chen_zhe += a.c_str()
+            chen_zhe += t;
     }
     return chen_zhe;
 }
@@ -249,7 +247,7 @@ inline double doubleRandom() {
 }
 void RandomP(int* arr,int size){
     for(int i=0;i<size;i++){
-        arr[i]=i;
+        arr[i]=i+1;
     }
     int t=cyrand(0,size/2);
     for(int i=0;i<t;i++){
