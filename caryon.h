@@ -224,12 +224,10 @@ inline char cyrand_fomatc() {
 inline std::string cyrand_word(int a) {
     std::string chen_zhe;
     for (int kkksc03 = 0; kkksc03 < a; kkksc03++) {
-        if (cyrand_bool()) {
-            chen_zhe[kkksc03] = cyrand_engs();
-        }
-        else {
-            chen_zhe[kkksc03] = cyrand_engb();
-        }
+            char t=cyrand_engs();
+            char a[1];
+            a[0]=t;
+            chen_zhe += a.c_str()
     }
     return chen_zhe;
 }
@@ -248,6 +246,15 @@ inline T choice(T* a, int lbound, int ubound) {
 inline double doubleRandom() {
     srand(time(0));
     return (double)(rand() / (double)RAND_MAX);
+}
+void RandomP(int* arr,int size){
+    for(int i=0;i<size;i++){
+        arr[i]=i;
+    }
+    int t=cyrand(0,size/2);
+    for(int i=0;i<t;i++){
+        swap(arr[cyrand(0,size-1)],arr[cyrand(0,size-1)]);
+    }
 }
 inline bool __checktmp(int* arr, int tmp, int flag, int end) {
     if (flag == 0) {
@@ -468,7 +475,7 @@ graph< T > connect_graph(int n, int m, T mn, T mx, T (*randfunc)(T, T)) {
     int        k = crand::cyrand(1, n);
     graph< T > ret;
     do {
-        ret = rand_graph(n, m, mn, mx, cyrand);
+        ret = rand_graph(n, m, mn, mx, crand::cyrand);
     } while (!ret.isconnect());
 }
 }  // namespace cgraph
